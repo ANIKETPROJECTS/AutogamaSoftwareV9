@@ -799,10 +799,11 @@ export default function CustomerService() {
     const serviceItemsList: any[] = [];
     // Add PPF if selected
     if (ppfPrice > 0) {
+      const ppfDiscountValue = parseFloat(ppfDiscount) || 0;
       serviceItemsList.push({
         name: `PPF ${ppfCategory} - ${ppfWarranty}`,
         price: ppfPrice,
-        discount: ppfDiscountAmount,
+        discount: ppfDiscountValue,
         type: 'part',
         category: ppfCategory,
         vehicleType: ppfVehicleType,
@@ -813,10 +814,11 @@ export default function CustomerService() {
       });
     }
     selectedOtherServices.filter(s => s.name !== 'TEST').forEach(s => {
+      const svcDiscount = s.discount || 0;
       serviceItemsList.push({
         name: s.name,
         price: s.price,
-        discount: s.discount || 0,
+        discount: svcDiscount,
         type: 'part',
         vehicleType: s.vehicleType,
         isPpf: false

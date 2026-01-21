@@ -598,7 +598,7 @@ export class MongoStorage implements IStorage {
     const businessItems = job.serviceItems.filter((item: any) => (item.assignedBusiness || 'Auto Gamma') === business);
     if (businessItems.length === 0) return null;
     const subtotal = businessItems.reduce((sum: number, item: any) => sum + (item.price || 0), 0);
-    const itemDiscounts = businessItems.reduce((sum: number, item: any) => sum + (item.discount || 0), 0);
+    const itemDiscounts = businessItems.reduce((sum: number, item: any) => sum + (item.discount || item.discountAmount || 0), 0);
     const taxableAmount = Math.max(0, subtotal - itemDiscounts - discount);
     const taxAmount = job.requiresGST ? (taxableAmount * taxRate) / 100 : 0;
     const totalAmount = taxableAmount + taxAmount;
