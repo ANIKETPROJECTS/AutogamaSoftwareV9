@@ -691,7 +691,7 @@ Auto Gamma Car Care Studio`;
           </Button>
           <Select value={filterService} onValueChange={setFilterService}>
             <SelectTrigger className="w-[180px] h-11"><SelectValue placeholder="Filter by service" /></SelectTrigger>
-            <SelectContent>
+            <SelectContent className="max-h-[200px] overflow-y-auto">
               <SelectItem value="all">All Services</SelectItem>
               {ALL_SERVICE_OPTIONS.map(s => <SelectItem key={s} value={s}>{s}</SelectItem>)}
             </SelectContent>
@@ -887,7 +887,7 @@ Auto Gamma Car Care Studio`;
                     setTempAccessoryId('');
                   }}>
                     <SelectTrigger data-testid="select-accessory-category"><SelectValue placeholder="Accessory Category" /></SelectTrigger>
-                    <SelectContent className="max-h-64 overflow-y-auto">
+                    <SelectContent className="max-h-[200px] overflow-y-auto">
                       <div className="p-2 sticky top-0 bg-white z-10 border-b">
                         <Input
                           placeholder="Search category..."
@@ -914,7 +914,7 @@ Auto Gamma Car Care Studio`;
                     setTempAccessoryId(value);
                   }} disabled={!tempAccessoryCategory}>
                     <SelectTrigger data-testid="select-accessory"><SelectValue placeholder="Accessory Name" /></SelectTrigger>
-                    <SelectContent className="max-h-64 overflow-y-auto">
+                    <SelectContent className="max-h-[200px] overflow-y-auto">
                       <div className="p-2 sticky top-0 bg-white z-10 border-b">
                         <Input
                           placeholder="Search accessory..."
