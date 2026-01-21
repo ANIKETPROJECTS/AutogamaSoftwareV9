@@ -99,8 +99,9 @@ export default function CustomerService() {
           if (job) {
             setSelectedCustomerId(job.customerId);
             setServiceNotes(job.notes || '');
-            const laborChargeItem = job.serviceItems.find((i: any) => i.name === 'Labor Charge');
+            const laborChargeItem = job.serviceItems?.find((i: any) => i.name === 'Labor Charge' || i.type === 'labor');
             const laborCostValue = job.laborCost?.toString() || laborChargeItem?.price?.toString() || '';
+            console.log('[Edit DEBUG] Setting labor cost:', laborCostValue, 'from item:', laborChargeItem);
             setLaborCost(laborCostValue);
             setIncludeGst(job.requiresGST ?? true);
             setSelectedTechnicianId(job.technicianId || '');
@@ -146,9 +147,16 @@ export default function CustomerService() {
               setSelectedAccessories(accessories);
 
               // Map inventory items (rolls)
-              // Only include items that are NOT the main PPF service to avoid duplication
+              // Only include items that are NOT the main PPF service AND NOT accessories to avoid duplication
               const inventoryItems = job.serviceItems
-                .filter((item: any) => item.sizeUsed !== undefined && !item.isPpf && item.category !== 'Accessories')
+                .filter((item: any) => {
+                  const isMainPpf = item.isPpf === true;
+                  const isAccessory = item.category === 'Accessories' || item.vehicleType === 'accessory';
+                  const hasSize = item.sizeUsed !== undefined;
+                  // We only want items added via "Add Item from Inventory" section
+                  // These items have sizeUsed but are NOT the primary PPF service
+                  return hasSize && !isMainPpf && !isAccessory;
+                })
                 .map((item: any) => ({
                   inventoryId: item.inventoryId || '',
                   quantity: item.sizeUsed || 0,
