@@ -101,6 +101,7 @@ export default function CustomerService() {
             setServiceNotes(job.notes || '');
             setLaborCost(job.laborCost?.toString() || '');
             setIncludeGst(job.requiresGST ?? true);
+            setSelectedTechnicianId(job.technicianId || '');
             
             if (job.vehicleIndex !== undefined) {
               setSelectedVehicleIndex(job.vehicleIndex.toString());
