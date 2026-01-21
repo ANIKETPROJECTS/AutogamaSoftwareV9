@@ -99,10 +99,23 @@ export default function CustomerService() {
           if (job) {
             setSelectedCustomerId(job.customerId);
             setServiceNotes(job.notes || '');
-            const laborChargeItem = job.serviceItems?.find((i: any) => i.name === 'Labor Charge' || i.type === 'labor');
-            const laborCostValue = job.laborCost?.toString() || laborChargeItem?.price?.toString() || '';
-            console.log('[Edit DEBUG] Setting labor cost:', laborCostValue, 'from item:', laborChargeItem);
-            setLaborCost(laborCostValue);
+            // First find the explicit labor cost field from the job
+            let finalLaborCost = job.laborCost?.toString() || '';
+            
+            // If not found in dedicated field, search in service items
+            if (!finalLaborCost) {
+              const laborChargeItem = job.serviceItems?.find((i: any) => 
+                i.name === 'Labor Charge' || 
+                i.type === 'labor' || 
+                (typeof i.name === 'string' && i.name.toLowerCase().includes('labor'))
+              );
+              if (laborChargeItem) {
+                finalLaborCost = laborChargeItem.price?.toString() || '';
+              }
+            }
+            
+            console.log('[Edit DEBUG] Setting labor cost to state:', finalLaborCost);
+            setLaborCost(finalLaborCost);
             setIncludeGst(job.requiresGST ?? true);
             setSelectedTechnicianId(job.technicianId || '');
             
@@ -153,9 +166,13 @@ export default function CustomerService() {
                   const isMainPpf = item.isPpf === true;
                   const isAccessory = item.category === 'Accessories' || item.vehicleType === 'accessory';
                   const hasSize = item.sizeUsed !== undefined;
+                  
+                  // Also check if the name matches the main PPF service to be extra safe
+                  const ppfItem = job.serviceItems.find((i: any) => i.isPpf);
+                  const isPpfDuplicate = ppfItem && item.name === ppfItem.name;
+
                   // We only want items added via "Add Item from Inventory" section
-                  // These items have sizeUsed but are NOT the primary PPF service
-                  return hasSize && !isMainPpf && !isAccessory;
+                  return hasSize && !isMainPpf && !isAccessory && !isPpfDuplicate;
                 })
                 .map((item: any) => ({
                   inventoryId: item.inventoryId || '',
