@@ -23,7 +23,6 @@ import Tickets from "@/pages/tickets";
 import Appointments from "@/pages/appointments";
 import PriceInquiries from "@/pages/price-inquiries";
 import Invoices from "@/pages/invoices";
-import MISPage from "@/pages/mis";
 import Settings from "@/pages/settings";
 import NotFound from "@/pages/not-found";
 
@@ -44,7 +43,6 @@ function ProtectedRoutes() {
           <Route path="/technicians" component={Technicians} />
           <Route path="/manage-services" component={ManageServices} />
           <Route path="/invoices" component={Invoices} />
-          <Route path="/mis" component={MISPage} />
           <Route path="/inventory" component={Inventory} />
           <Route path="/tickets" component={Tickets} />
           <Route path="/roll-history/:id" component={RollHistory} />
