@@ -99,7 +99,9 @@ export default function CustomerService() {
           if (job) {
             setSelectedCustomerId(job.customerId);
             setServiceNotes(job.notes || '');
-            setLaborCost(job.laborCost?.toString() || job.serviceItems.find((i: any) => i.name === 'Labor Charge')?.price?.toString() || '');
+            const laborChargeItem = job.serviceItems.find((i: any) => i.name === 'Labor Charge');
+            const laborCostValue = job.laborCost?.toString() || laborChargeItem?.price?.toString() || '';
+            setLaborCost(laborCostValue);
             setIncludeGst(job.requiresGST ?? true);
             setSelectedTechnicianId(job.technicianId || '');
             
@@ -144,6 +146,7 @@ export default function CustomerService() {
               setSelectedAccessories(accessories);
 
               // Map inventory items (rolls)
+              // Only include items that are NOT the main PPF service to avoid duplication
               const inventoryItems = job.serviceItems
                 .filter((item: any) => item.sizeUsed !== undefined && !item.isPpf && item.category !== 'Accessories')
                 .map((item: any) => ({
@@ -744,7 +747,7 @@ export default function CustomerService() {
 
     const selectedTechnician = technicians.find((t: any) => t._id === selectedTechnicianId);
 
-    const serviceItemsList: any[] = [];
+    // Add PPF if selected
     if (ppfPrice > 0) {
       serviceItemsList.push({
         name: `PPF ${ppfCategory} - ${ppfWarranty}`,
@@ -755,6 +758,7 @@ export default function CustomerService() {
         vehicleType: ppfVehicleType,
         warranty: ppfWarranty,
         sizeUsed: metersUsed,
+        inventoryId: selectedItemId, // Make sure we store inventory ID for PPF
         isPpf: true
       });
     }
