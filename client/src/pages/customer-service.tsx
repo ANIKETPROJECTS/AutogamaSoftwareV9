@@ -138,6 +138,17 @@ export default function CustomerService() {
                   quantity: item.quantity || 1
                 }));
               setSelectedAccessories(accessories);
+
+              // Map inventory items (rolls)
+              const inventoryItems = job.serviceItems
+                .filter((item: any) => item.sizeUsed !== undefined && !item.isPpf)
+                .map((item: any) => ({
+                  inventoryId: item.inventoryId || '',
+                  quantity: item.sizeUsed || 0,
+                  name: item.name,
+                  unit: item.unit || 'Units'
+                }));
+              setSelectedItems(inventoryItems);
             }
           }
         } catch (error) {
@@ -765,6 +776,21 @@ export default function CustomerService() {
         category: 'Accessories',
         vehicleType: 'accessory',
         inventoryId: a.id,
+        isPpf: false
+      });
+    });
+
+    // Add Selected Inventory Items (Rolls)
+    selectedItems.forEach(item => {
+      serviceItemsList.push({
+        name: item.name,
+        price: 0, // Material cost usually handled elsewhere or part of service
+        unitPrice: 0,
+        quantity: item.quantity,
+        sizeUsed: item.quantity,
+        unit: item.unit,
+        inventoryId: item.inventoryId,
+        type: 'part',
         isPpf: false
       });
     });
