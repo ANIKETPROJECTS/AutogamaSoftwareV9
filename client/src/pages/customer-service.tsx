@@ -685,6 +685,25 @@ export default function CustomerService() {
   const includeGstValue = includeGst ? subtotal * 0.18 : 0;
   const totalCostValue = subtotal + includeGstValue;
 
+  const updateJobMutation = useMutation({
+    mutationFn: async (data: any) => {
+      if (!editingJobId) return;
+      const job = await api.jobs.update(editingJobId, data);
+      return job;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['jobs'] });
+      queryClient.invalidateQueries({ queryKey: ['inventory'] });
+      resetForm();
+      setEditingJobId(null);
+      setLocation('/funnel');
+      toast({ title: 'Service updated successfully!' });
+    },
+    onError: (error: any) => {
+      toast({ title: error?.message || 'Failed to update service', variant: 'destructive' });
+    }
+  });
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log('[Inventory DEBUG] Form submission started');
