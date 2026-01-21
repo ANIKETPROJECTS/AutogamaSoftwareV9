@@ -99,7 +99,7 @@ export default function CustomerService() {
           if (job) {
             setSelectedCustomerId(job.customerId);
             setServiceNotes(job.notes || '');
-            setLaborCost(job.laborCost?.toString() || '');
+            setLaborCost(job.laborCost?.toString() || job.serviceItems.find((i: any) => i.name === 'Labor Charge')?.price?.toString() || '');
             setIncludeGst(job.requiresGST ?? true);
             setSelectedTechnicianId(job.technicianId || '');
             
@@ -130,18 +130,22 @@ export default function CustomerService() {
 
               const accessories = job.serviceItems
                 .filter((item: any) => item.category === 'Accessories')
-                .map((item: any) => ({
-                  id: item.inventoryId || Math.random().toString(),
-                  name: item.name,
-                  category: 'Accessories',
-                  price: item.price || 0,
-                  quantity: item.quantity || 1
-                }));
+                .map((item: any) => {
+                  const nameMatch = item.name.match(/^(.*?)\s*\(x\d+\)$/);
+                  const cleanName = nameMatch ? nameMatch[1] : item.name;
+                  return {
+                    id: item.inventoryId || Math.random().toString(),
+                    name: cleanName,
+                    category: 'Accessories',
+                    price: item.unitPrice || item.price || 0,
+                    quantity: item.quantity || 1
+                  };
+                });
               setSelectedAccessories(accessories);
 
               // Map inventory items (rolls)
               const inventoryItems = job.serviceItems
-                .filter((item: any) => item.sizeUsed !== undefined && !item.isPpf)
+                .filter((item: any) => item.sizeUsed !== undefined && !item.isPpf && item.category !== 'Accessories')
                 .map((item: any) => ({
                   inventoryId: item.inventoryId || '',
                   quantity: item.sizeUsed || 0,
@@ -766,6 +770,12 @@ export default function CustomerService() {
     });
     // Add Accessories explicitly
     selectedAccessories.forEach(a => {
+      // Find if already added to avoid duplicates if something goes wrong
+      const isAlreadyAdded = serviceItemsList.some(item => 
+        item.inventoryId === a.id && item.category === 'Accessories'
+      );
+      if (isAlreadyAdded) return;
+
       serviceItemsList.push({
         name: `${a.name} (x${a.quantity})`,
         price: a.price * a.quantity,
@@ -782,9 +792,13 @@ export default function CustomerService() {
 
     // Add Selected Inventory Items (Rolls)
     selectedItems.forEach(item => {
+      // Avoid adding if already in list (e.g. if it was also a PPF item, though we filter those)
+      const isAlreadyAdded = serviceItemsList.some(i => i.inventoryId === item.inventoryId && i.sizeUsed !== undefined);
+      if (isAlreadyAdded) return;
+
       serviceItemsList.push({
         name: item.name,
-        price: 0, // Material cost usually handled elsewhere or part of service
+        price: 0,
         unitPrice: 0,
         quantity: item.quantity,
         sizeUsed: item.quantity,
