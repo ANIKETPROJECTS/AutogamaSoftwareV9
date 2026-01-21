@@ -1472,6 +1472,7 @@ export default function CustomerRegistration() {
                 )}
 
                 {/* PPF & Services in 2 Columns */}
+                {false && (
                 <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* PPF Selection - Left Column */}
                   <div className="space-y-6">
@@ -2367,6 +2368,7 @@ export default function CustomerRegistration() {
                     </Card>
                   </div>
                 </div>
+                )}
 
                 <div className="md:col-span-2 space-y-6">
                   <Label>Address</Label>
