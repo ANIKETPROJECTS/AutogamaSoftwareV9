@@ -2,7 +2,7 @@ import express, { type Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { sendStageUpdateMessage } from "./whatsapp";
-import { Customer, Admin, Invoice, PpfCategory, Service, Ticket, Settings } from "./models";
+import { Customer, Admin, Invoice, PpfCategory, Service, Ticket, Settings, PriceInquiry } from "./models";
 import type { JobStage, CustomerStatus } from "./models";
 import mongoose from "mongoose";
 import path from "path";

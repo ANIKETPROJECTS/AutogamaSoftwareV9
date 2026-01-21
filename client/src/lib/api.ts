@@ -111,8 +111,12 @@ export const api = {
   },
 
   priceInquiries: {
-    list: (options?: { page?: number; limit?: number }) => 
+    list: (options?: { search?: string; status?: string; sortBy?: string; sortOrder?: string; page?: number; limit?: number }) => 
       request<{ inquiries: any[]; total: number }>(`/price-inquiries?${new URLSearchParams({
+        ...(options?.search && { search: options.search }),
+        ...(options?.status && { status: options.status }),
+        ...(options?.sortBy && { sortBy: options.sortBy }),
+        ...(options?.sortOrder && { sortOrder: options.sortOrder }),
         ...(options?.page && { page: options.page.toString() }),
         ...(options?.limit && { limit: options.limit.toString() }),
       })}`),

@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { Trash2, Phone, Mail, Search, X, AlertCircle, LayoutGrid, List, Download, Printer, Share2 } from 'lucide-react';
+import { Trash2, Phone, Mail, Search, X, AlertCircle, LayoutGrid, List, Download, Printer, Share2, ArrowUpDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Textarea } from '@/components/ui/textarea';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -459,15 +459,13 @@ Auto Gamma Car Care Studio`;
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
 
   const { data: inquiriesData, isLoading } = useQuery({
-    queryKey: ['/api/price-inquiries', searchQuery, statusFilter, sortBy, sortOrder],
-    queryFn: () => {
-      const params = new URLSearchParams();
-      if (searchQuery) params.append('search', searchQuery);
-      if (statusFilter !== 'all') params.append('status', statusFilter);
-      params.append('sortBy', sortBy);
-      params.append('sortOrder', sortOrder);
-      return fetch(`/api/price-inquiries?${params.toString()}`).then(res => res.json());
-    },
+    queryKey: ['/api/price-inquiries', searchQuery, statusFilter, sortBy, sortOrder, filterService],
+    queryFn: () => api.priceInquiries.list({ 
+      search: searchQuery, 
+      status: statusFilter, 
+      sortBy, 
+      sortOrder 
+    }),
   });
 
   const updateStatusMutation = useMutation({
@@ -478,7 +476,16 @@ Auto Gamma Car Care Studio`;
       toast({ title: 'Status updated successfully' });
     },
   });
+
   const inquiries = inquiriesData?.inquiries || [];
+
+  const filteredInquiries = useMemo(() => {
+    let result = inquiries || [];
+    if (filterService && filterService !== 'all') {
+      result = result.filter((inq: any) => inq.service.includes(filterService));
+    }
+    return result;
+  }, [inquiries, filterService]);
 
   const createMutation = useMutation({
     mutationFn: api.priceInquiries.create,
@@ -650,32 +657,45 @@ Auto Gamma Car Care Studio`;
     });
   };
 
-  const filteredInquiries = useMemo(() => {
-    return inquiries.filter((inquiry: any) => {
-      const matchesSearch = inquiry.name.toLowerCase().includes(searchQuery.toLowerCase()) || inquiry.phone.includes(searchQuery);
-      const matchesFilter = filterService === 'all' || !filterService || inquiry.service.includes(filterService);
-      return matchesSearch && matchesFilter;
-    });
-  }, [inquiries, searchQuery, filterService]);
-
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold">Inquiry</h1>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="relative">
+      <div className="flex flex-col md:flex-row gap-4">
+        <div className="flex-1 relative">
           <Search className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
-          <Input placeholder="Search..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pl-10" />
+          <Input placeholder="Search name, phone or ID..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pl-10 h-11" />
         </div>
-            <Select value={filterService} onValueChange={setFilterService}>
-          <SelectTrigger><SelectValue placeholder="Filter by service" /></SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">All Services</SelectItem>
-            {ALL_SERVICE_OPTIONS.map(s => <SelectItem key={s} value={s}>{s}</SelectItem>)}
-          </SelectContent>
-        </Select>
+        <div className="flex flex-wrap gap-2">
+          <Select value={statusFilter} onValueChange={setStatusFilter}>
+            <SelectTrigger className="w-[140px] h-11"><SelectValue placeholder="Status" /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All Status</SelectItem>
+              <SelectItem value="Inquiry">Inquiry</SelectItem>
+              <SelectItem value="Converted">Converted</SelectItem>
+            </SelectContent>
+          </Select>
+          <Select value={sortBy} onValueChange={setSortBy}>
+            <SelectTrigger className="w-[140px] h-11"><SelectValue placeholder="Sort By" /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="createdAt">Date</SelectItem>
+              <SelectItem value="name">Name</SelectItem>
+              <SelectItem value="priceOffered">Price</SelectItem>
+            </SelectContent>
+          </Select>
+          <Button variant="outline" size="icon" className="h-11 w-11" onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}>
+            <ArrowUpDown className="w-4 h-4" />
+          </Button>
+          <Select value={filterService} onValueChange={setFilterService}>
+            <SelectTrigger className="w-[180px] h-11"><SelectValue placeholder="Filter by service" /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All Services</SelectItem>
+              {ALL_SERVICE_OPTIONS.map(s => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+            </SelectContent>
+          </Select>
+        </div>
       </div>
 
       {!showForm ? (
