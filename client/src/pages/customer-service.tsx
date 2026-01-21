@@ -132,37 +132,38 @@ export default function CustomerService() {
               setSelectedVehicleIndex(job.vehicleIndex.toString());
             }
 
-              // Map service items back to form state
-              if (Array.isArray(job.serviceItems)) {
-                console.log('[Edit DEBUG] Mapping service items:', job.serviceItems);
-                const ppfItem = job.serviceItems.find((item: any) => item.isPpf);
-                if (ppfItem) {
-                  console.log('[Edit DEBUG] Found PPF item:', ppfItem);
-                  setPpfCategory(ppfItem.category || '');
-                  setPpfVehicleType(ppfItem.vehicleType || '');
-                  setPpfWarranty(ppfItem.warranty || '');
-                  setPpfPrice(ppfItem.price || 0);
-                  // Try item discount first, then fallback to job discount
-                  const itemDiscount = ppfItem.discount || ppfItem.discountAmount;
-                  setPpfDiscount(itemDiscount?.toString() || (job.discountAmount ? job.discountAmount.toString() : ''));
-                }
+      // Map service items back to form state
+      if (Array.isArray(job.serviceItems)) {
+        console.log('[Edit DEBUG] Mapping service items:', job.serviceItems);
+        const ppfItem = job.serviceItems.find((item: any) => item.isPpf);
+        if (ppfItem) {
+          console.log('[Edit DEBUG] Found PPF item:', ppfItem);
+          setPpfCategory(ppfItem.category || '');
+          setPpfVehicleType(ppfItem.vehicleType || '');
+          setPpfWarranty(ppfItem.warranty || '');
+          setPpfPrice(ppfItem.price || 0);
+          
+          // Use item-level discount if available, otherwise job-level
+          const itemDiscount = ppfItem.discount ?? ppfItem.discountAmount;
+          if (itemDiscount !== undefined) {
+            setPpfDiscount(itemDiscount.toString());
+          } else if (job.discountAmount !== undefined) {
+            setPpfDiscount(job.discountAmount.toString());
+          } else {
+            setPpfDiscount('0');
+          }
+        }
 
-                const otherServices = job.serviceItems
-                  .filter((item: any) => !item.isPpf && item.category !== 'Accessories' && item.name !== 'Labor Charge' && item.sizeUsed === undefined)
-                  .map((item: any) => ({
-                    name: item.name,
-                    vehicleType: item.vehicleType || '',
-                    price: item.price || 0,
-                    discount: item.discount || item.discountAmount || 0
-                  }));
-                console.log('[Edit DEBUG] Mapped other services:', otherServices);
-                setSelectedOtherServices(otherServices);
-
-                // Map PPF discount from job-level discount if not on item and ppfItem exists
-                if (job.discountAmount && ppfItem && !ppfItem.discount && !ppfItem.discountAmount) {
-                  console.log('[Edit DEBUG] Falling back to job-level discount:', job.discountAmount);
-                  setPpfDiscount(job.discountAmount.toString());
-                }
+        const otherServices = job.serviceItems
+          .filter((item: any) => !item.isPpf && item.category !== 'Accessories' && item.name !== 'Labor Charge' && item.sizeUsed === undefined)
+          .map((item: any) => ({
+            name: item.name,
+            vehicleType: item.vehicleType || '',
+            price: item.price || 0,
+            discount: item.discount ?? item.discountAmount ?? 0
+          }));
+        console.log('[Edit DEBUG] Mapped other services:', otherServices);
+        setSelectedOtherServices(otherServices);
 
               const accessories = job.serviceItems
                 .filter((item: any) => item.category === 'Accessories')

@@ -616,14 +616,17 @@ export class MongoStorage implements IStorage {
     if (!customer) return null;
 
     // Map service items to invoice items
-    const invoiceItems = businessItems.map((item: any) => ({
-      description: item.name,
-      quantity: 1,
-      unitPrice: item.price,
-      total: item.price,
-      type: 'service' as const,
-      discount: item.discount || 0
-    }));
+    const invoiceItems = businessItems.map((item: any) => {
+      const itemDiscount = item.discount ?? item.discountAmount ?? 0;
+      return {
+        description: item.name,
+        quantity: 1,
+        unitPrice: item.price,
+        total: item.price - itemDiscount,
+        type: 'service' as const,
+        discount: itemDiscount
+      };
+    });
 
     const invoice = new Invoice({ 
       jobId, 
