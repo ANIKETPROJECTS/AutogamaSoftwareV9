@@ -28,6 +28,7 @@ export default function CustomerService() {
   const queryClient = useQueryClient();
   const [, setLocation] = useLocation();
   
+  const [editingJobId, setEditingJobId] = useState<string | null>(null);
   const [selectedCustomerId, setSelectedCustomerId] = useState<string>('');
   const [selectedVehicleIndex, setSelectedVehicleIndex] = useState<string>('');
   const [selectedTechnicianId, setSelectedTechnicianId] = useState<string>('');
@@ -88,8 +89,63 @@ export default function CustomerService() {
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const preSelectedCustomerId = urlParams.get('customerId');
+    const preSelectedJobId = urlParams.get('jobId');
     
-    if (preSelectedCustomerId && customers.length > 0) {
+    if (preSelectedJobId) {
+      setEditingJobId(preSelectedJobId);
+      const loadJobData = async () => {
+        try {
+          const job = await api.jobs.get(preSelectedJobId);
+          if (job) {
+            setSelectedCustomerId(job.customerId);
+            setServiceNotes(job.notes || '');
+            setLaborCost(job.laborCost?.toString() || '');
+            setIncludeGst(job.requiresGST ?? true);
+            
+            if (job.vehicleIndex !== undefined) {
+              setSelectedVehicleIndex(job.vehicleIndex.toString());
+            }
+
+            // Map service items back to form state
+            if (Array.isArray(job.serviceItems)) {
+              const ppfItem = job.serviceItems.find((item: any) => item.isPpf);
+              if (ppfItem) {
+                setPpfCategory(ppfItem.category || '');
+                setPpfVehicleType(ppfItem.vehicleType || '');
+                setPpfWarranty(ppfItem.warranty || '');
+                setPpfPrice(ppfItem.price || 0);
+                setPpfDiscount(ppfItem.discount?.toString() || '');
+              }
+
+              const otherServices = job.serviceItems
+                .filter((item: any) => !item.isPpf && item.category !== 'Accessories')
+                .map((item: any) => ({
+                  name: item.name,
+                  vehicleType: item.vehicleType || '',
+                  price: item.price || 0,
+                  discount: item.discount || 0
+                }));
+              setSelectedOtherServices(otherServices);
+
+              const accessories = job.serviceItems
+                .filter((item: any) => item.category === 'Accessories')
+                .map((item: any) => ({
+                  id: item.inventoryId || Math.random().toString(),
+                  name: item.name,
+                  category: 'Accessories',
+                  price: item.price || 0,
+                  quantity: item.quantity || 1
+                }));
+              setSelectedAccessories(accessories);
+            }
+          }
+        } catch (error) {
+          console.error("Error loading job for edit:", error);
+          toast({ title: "Failed to load job details", variant: "destructive" });
+        }
+      };
+      loadJobData();
+    } else if (preSelectedCustomerId && customers.length > 0) {
       const customer = customers.find((c: any) => (c._id === preSelectedCustomerId || c.id === preSelectedCustomerId));
       if (customer) {
         const targetId = customer._id || customer.id;
@@ -641,21 +697,6 @@ export default function CustomerService() {
       return;
     }
 
-    // Map PPF category to inventory ID
-    const ppfInventoryItem = (Array.isArray(inventory) ? inventory : []).find(
-      (item: any) => item.name.toLowerCase() === ppfCategory.toLowerCase() && item.category !== 'Accessories'
-    );
-
-    // DEDUCT ACCESSORIES
-    for (const acc of selectedAccessories) {
-      console.log(`[Inventory DEBUG] Deducting accessory: ${acc.name}, qty: ${acc.quantity}`);
-      try {
-        await api.inventory.adjust(acc.id, -acc.quantity);
-      } catch (err: any) {
-        console.error('[Inventory DEBUG] Accessory deduction failed:', err);
-      }
-    }
-
     const customer = customers.find((c: any) => c._id === selectedCustomerId);
     if (!customer) return;
     const vehicleIdx = parseInt(selectedVehicleIndex, 10);
@@ -678,7 +719,8 @@ export default function CustomerService() {
         category: ppfCategory,
         vehicleType: ppfVehicleType,
         warranty: ppfWarranty,
-        sizeUsed: metersUsed
+        sizeUsed: metersUsed,
+        isPpf: true
       });
     }
     selectedOtherServices.filter(s => s.name !== 'TEST').forEach(s => {
@@ -687,7 +729,8 @@ export default function CustomerService() {
         price: s.price,
         discount: s.discount || 0,
         type: 'part',
-        vehicleType: s.vehicleType
+        vehicleType: s.vehicleType,
+        isPpf: false
       });
     });
     // Add Accessories explicitly
@@ -700,28 +743,22 @@ export default function CustomerService() {
         discount: 0,
         type: 'part',
         category: 'Accessories',
-        vehicleType: 'accessory'
+        vehicleType: 'accessory',
+        inventoryId: a.id,
+        isPpf: false
       });
     });
-    // Add 'TEST' as an accessory if it exists in other services (legacy support or special case)
-    selectedOtherServices.filter(s => s.name === 'TEST').forEach(s => {
-      serviceItemsList.push({
-        name: `${s.name} (Accessory)`,
-        price: s.price,
-        discount: s.discount || 0,
-        type: 'part',
-        category: 'Accessories'
-      });
-    });
+
     if (parsedLaborCost > 0) {
       serviceItemsList.push({
         name: 'Labor Charge',
         price: parsedLaborCost,
-        type: 'labor'
+        type: 'labor',
+        isPpf: false
       });
     }
 
-    createJobMutation.mutate({
+    const jobData = {
       customerId: selectedCustomerId,
       vehicleIndex: vehicleIdx,
       customerName: customer.name,
@@ -736,11 +773,27 @@ export default function CustomerService() {
       paidAmount: 0,
       paymentStatus: 'Pending',
       requiresGST: includeGst
-    }, {
-      onSuccess: () => {
-        setLocation('/jobs');
+    };
+
+    if (editingJobId) {
+      updateJobMutation.mutate(jobData);
+    } else {
+      // DEDUCT ACCESSORIES only for new jobs
+      for (const acc of selectedAccessories) {
+        console.log(`[Inventory DEBUG] Deducting accessory: ${acc.name}, qty: ${acc.quantity}`);
+        try {
+          await api.inventory.adjust(acc.id, -acc.quantity);
+        } catch (err: any) {
+          console.error('[Inventory DEBUG] Accessory deduction failed:', err);
+        }
       }
-    });
+
+      createJobMutation.mutate(jobData, {
+        onSuccess: () => {
+          setLocation('/jobs');
+        }
+      });
+    }
   };
 
   const getAvailableWarranties = () => {
@@ -1494,9 +1547,13 @@ export default function CustomerService() {
                       <Button 
                         type="submit" 
                         className="w-full h-10 text-base font-bold bg-red-600 hover:bg-red-700 text-white shadow-lg shadow-red-200 transition-all active:scale-[0.98]" 
-                        disabled={createJobMutation.isPending}
+                        disabled={createJobMutation.isPending || updateJobMutation.isPending}
                       >
-                        {createJobMutation.isPending ? 'Creating...' : 'Create Service'}
+                        {editingJobId ? (
+                          updateJobMutation.isPending ? 'Updating...' : 'Update Service'
+                        ) : (
+                          createJobMutation.isPending ? 'Creating...' : 'Create Service'
+                        )}
                       </Button>
                     </div>
                   </CardContent>

@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Eye, Wrench, Phone, MapPin, Search, History, Car, Clock, Mail, Briefcase, DollarSign, Calendar, Pencil, Trash2, ReceiptText } from "lucide-react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import {
   Dialog,
   DialogContent,
@@ -59,6 +59,7 @@ const STAGE_BG_COLORS: Record<string, string> = {
 };
 
 export default function CustomerFunnel() {
+  const [, setLocation] = useLocation();
   const [selectedCustomer, setSelectedCustomer] = useState<any>(null);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [historyOpen, setHistoryOpen] = useState(false);
@@ -323,13 +324,11 @@ export default function CustomerFunnel() {
                                 size="icon"
                                 className="h-8 w-8 text-blue-600 hover:text-blue-700 hover:bg-blue-50"
                                 onClick={() => {
-                                  setJobToEdit(job);
-                                  setEditForm({
-                                    vehicleName: job.vehicleName || "",
-                                    plateNumber: job.plateNumber || "",
-                                    totalAmount: job.totalAmount || 0
-                                  });
-                                  setEditDialogOpen(true);
+                                  const queryParams = new URLSearchParams({
+                                    customerId: job.customerId,
+                                    jobId: job._id
+                                  }).toString();
+                                  setLocation(`/customer-service?${queryParams}`);
                                 }}
                               >
                                 <Pencil className="w-4 h-4" />
