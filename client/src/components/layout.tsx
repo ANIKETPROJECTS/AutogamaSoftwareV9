@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'wouter';
-import { Menu, X, LayoutDashboard, UserPlus, Filter, Users, Wrench, UserCog, FileText, CreditCard, Package, Calendar, MessageCircle, Settings, LogOut, Bell, User, MessageSquare, CalendarClock, Clock, Car, Phone, Mail, Info, ShieldCheck } from 'lucide-react';
+import { Menu, X, LayoutDashboard, UserPlus, Filter, Users, Wrench, UserCog, FileText, CreditCard, Package, Calendar, MessageCircle, Settings, LogOut, Bell, User, MessageSquare, CalendarClock, Clock, Car, Phone, Mail, Info, ShieldCheck, BarChart3 } from 'lucide-react';
 import { useState, useEffect, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { cn } from '@/lib/utils';
@@ -33,6 +33,7 @@ const menuItems = [
   { href: '/customer-service', label: 'Customers Service', icon: Wrench },
   { href: '/jobs', label: 'Service Funnel', icon: Wrench },
   { href: '/invoices', label: 'Invoices & Tracking', icon: FileText },
+  { href: '/mis', label: 'MIS Reports', icon: BarChart3 },
   { href: '/technicians', label: 'Technicians', icon: UserCog },
   { href: '/inventory', label: 'Inventory', icon: Package },
   { href: '/appointments', label: 'Appointments', icon: Calendar },
