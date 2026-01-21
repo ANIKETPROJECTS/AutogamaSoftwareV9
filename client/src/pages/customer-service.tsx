@@ -103,8 +103,8 @@ export default function CustomerService() {
             let finalLaborCost = job.laborCost?.toString() || '';
             
             // If not found in dedicated field, search in service items
-            if (!finalLaborCost) {
-              const laborChargeItem = job.serviceItems?.find((i: any) => 
+            if (!finalLaborCost && Array.isArray(job.serviceItems)) {
+              const laborChargeItem = job.serviceItems.find((i: any) => 
                 i.name === 'Labor Charge' || 
                 i.type === 'labor' || 
                 (typeof i.name === 'string' && i.name.toLowerCase().includes('labor'))
@@ -115,7 +115,8 @@ export default function CustomerService() {
             }
             
             console.log('[Edit DEBUG] Setting labor cost to state:', finalLaborCost);
-            setLaborCost(finalLaborCost);
+            // Ensure we set a string and handle the case where it might be undefined
+            setLaborCost(finalLaborCost || '0');
             setIncludeGst(job.requiresGST ?? true);
             setSelectedTechnicianId(job.technicianId || '');
             
@@ -169,7 +170,10 @@ export default function CustomerService() {
                   
                   // Also check if the name matches the main PPF service to be extra safe
                   const ppfItem = job.serviceItems.find((i: any) => i.isPpf);
-                  const isPpfDuplicate = ppfItem && item.name === ppfItem.name;
+                  const isPpfDuplicate = ppfItem && (
+                    item.name === ppfItem.name || 
+                    (item.inventoryId && item.inventoryId === ppfItem.inventoryId)
+                  );
 
                   // We only want items added via "Add Item from Inventory" section
                   return hasSize && !isMainPpf && !isAccessory && !isPpfDuplicate;
@@ -1291,7 +1295,17 @@ export default function CustomerService() {
 
                 <div className="space-y-2">
                   <Label>Labor Charge</Label>
-                  <Input type="number" value={laborCost} onChange={(e) => setLaborCost(e.target.value)} placeholder="0" min="0" />
+                  <Input 
+                    type="text" 
+                    value={laborCost} 
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      if (val === '' || /^\d*$/.test(val)) {
+                        setLaborCost(val);
+                      }
+                    }} 
+                    placeholder="0" 
+                  />
                 </div>
 
                 <div className="space-y-4 border border-gray-200 p-4 rounded-lg">
