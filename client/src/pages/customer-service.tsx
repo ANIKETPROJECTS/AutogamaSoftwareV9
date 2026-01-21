@@ -747,6 +747,7 @@ export default function CustomerService() {
 
     const selectedTechnician = technicians.find((t: any) => t._id === selectedTechnicianId);
 
+    const serviceItemsList: any[] = [];
     // Add PPF if selected
     if (ppfPrice > 0) {
       serviceItemsList.push({
