@@ -132,31 +132,37 @@ export default function CustomerService() {
               setSelectedVehicleIndex(job.vehicleIndex.toString());
             }
 
-            // Map service items back to form state
-            if (Array.isArray(job.serviceItems)) {
-              const ppfItem = job.serviceItems.find((item: any) => item.isPpf);
-              if (ppfItem) {
-                setPpfCategory(ppfItem.category || '');
-                setPpfVehicleType(ppfItem.vehicleType || '');
-                setPpfWarranty(ppfItem.warranty || '');
-                setPpfPrice(ppfItem.price || 0);
-                setPpfDiscount(ppfItem.discount?.toString() || '');
-              }
+              // Map service items back to form state
+              if (Array.isArray(job.serviceItems)) {
+                console.log('[Edit DEBUG] Mapping service items:', job.serviceItems);
+                const ppfItem = job.serviceItems.find((item: any) => item.isPpf);
+                if (ppfItem) {
+                  console.log('[Edit DEBUG] Found PPF item:', ppfItem);
+                  setPpfCategory(ppfItem.category || '');
+                  setPpfVehicleType(ppfItem.vehicleType || '');
+                  setPpfWarranty(ppfItem.warranty || '');
+                  setPpfPrice(ppfItem.price || 0);
+                  // Try item discount first, then fallback to job discount
+                  const itemDiscount = ppfItem.discount || ppfItem.discountAmount;
+                  setPpfDiscount(itemDiscount?.toString() || (job.discountAmount ? job.discountAmount.toString() : ''));
+                }
 
-              const otherServices = job.serviceItems
-                .filter((item: any) => !item.isPpf && item.category !== 'Accessories' && item.name !== 'Labor Charge' && item.sizeUsed === undefined)
-                .map((item: any) => ({
-                  name: item.name,
-                  vehicleType: item.vehicleType || '',
-                  price: item.price || 0,
-                  discount: item.discount || 0
-                }));
-              setSelectedOtherServices(otherServices);
+                const otherServices = job.serviceItems
+                  .filter((item: any) => !item.isPpf && item.category !== 'Accessories' && item.name !== 'Labor Charge' && item.sizeUsed === undefined)
+                  .map((item: any) => ({
+                    name: item.name,
+                    vehicleType: item.vehicleType || '',
+                    price: item.price || 0,
+                    discount: item.discount || item.discountAmount || 0
+                  }));
+                console.log('[Edit DEBUG] Mapped other services:', otherServices);
+                setSelectedOtherServices(otherServices);
 
-              // Map PPF discount from job-level discount if not on item
-              if (job.discountAmount && ppfItem && !ppfItem.discount) {
-                setPpfDiscount(job.discountAmount.toString());
-              }
+                // Map PPF discount from job-level discount if not on item and ppfItem exists
+                if (job.discountAmount && ppfItem && !ppfItem.discount && !ppfItem.discountAmount) {
+                  console.log('[Edit DEBUG] Falling back to job-level discount:', job.discountAmount);
+                  setPpfDiscount(job.discountAmount.toString());
+                }
 
               const accessories = job.serviceItems
                 .filter((item: any) => item.category === 'Accessories')
@@ -1171,7 +1177,18 @@ export default function CustomerService() {
                             </div>
                             <div className="w-full">
                               <Label className="text-xs">Discount</Label>
-                              <Input type="number" value={ppfDiscount} onChange={(e) => setPpfDiscount(e.target.value)} />
+                              <Input 
+                                type="text" 
+                                value={ppfDiscount} 
+                                onChange={(e) => {
+                                  const val = e.target.value;
+                                  if (val === '' || /^\d*$/.test(val)) {
+                                    setPpfDiscount(val);
+                                  }
+                                }} 
+                                placeholder="0"
+                                data-testid="input-ppf-discount"
+                              />
                             </div>
                           </div>
                         )}
@@ -1280,13 +1297,20 @@ export default function CustomerService() {
                                     <div className="w-full">
                                       <Label className="text-xs">Discount</Label>
                                       <Input 
-                                        type="number" 
+                                        type="text" 
                                         value={service.discount || ''} 
                                         onChange={(e) => {
-                                          const newServices = [...selectedOtherServices];
-                                          newServices[originalIndex].discount = parseFloat(e.target.value) || 0;
-                                          setSelectedOtherServices(newServices);
+                                          const val = e.target.value;
+                                          if (val === '' || /^\d*$/.test(val)) {
+                                            const newServices = [...selectedOtherServices];
+                                            newServices[originalIndex] = {
+                                              ...newServices[originalIndex],
+                                              discount: parseInt(val || '0', 10)
+                                            };
+                                            setSelectedOtherServices(newServices);
+                                          }
                                         }} 
+                                        placeholder="0"
                                       />
                                     </div>
                                   </div>
