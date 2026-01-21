@@ -1,0 +1,8 @@
+- [x] Define Service schema in MongoDB (`server/routes.ts` or model file)
+- [x] Create API endpoints for CRUD operations on Services
+- [x] Implement "Manage Services" page UI
+- [x] Add "Manage Services" link to Sidebar
+- [x] Register the new route in `client/src/App.tsx`
+- [x] Update Registration/Inquiry forms to fetch services from DB
+- [x] Store services with vehicle types, pricing, and optional warranty
+- [x] Remove hardcoded service definitions

@@ -1,0 +1,37 @@
+react-dom_client.js?v=48795085:20103 Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+registered-customers.tsx:117 [Filters] Processing customers for filter extraction: 0
+registered-customers.tsx:162 [Filters] Extracted filter options: Object
+registered-customers.tsx:117 [Filters] Processing customers for filter extraction: 1
+registered-customers.tsx:120 [Filters] Customer data: Object
+registered-customers.tsx:131 [Filters] Address parts: Array(4)
+registered-customers.tsx:162 [Filters] Extracted filter options: Object
+registered-customers.tsx:117 [Filters] Processing customers for filter extraction: 1
+registered-customers.tsx:120 [Filters] Customer data: Object
+registered-customers.tsx:131 [Filters] Address parts: Array(4)
+registered-customers.tsx:162 [Filters] Extracted filter options: Object
+registered-customers.tsx:254 [Export] Starting export process for 1 customers
+registered-customers.tsx:261 [Export] Normalized customers to export: 1
+registered-customers.tsx:269 [Export] Processing customer: ANIKET cus001
+registered-customers.tsx:392 [Export] Export data prepared, creating sheet. Row count: 1
+registered-customers.tsx:396 [Export] Writing file...
+registered-customers.tsx:398 [Export] Export successful
+registered-customers:1 Uncaught (in promise) Error: Could not establish connection. Receiving end does not exist.
+registered-customers:1 Uncaught (in promise) Error: Could not establish connection. Receiving end does not exist.
+registered-customers:1 Uncaught (in promise) Error: Could not establish connection. Receiving end does not exist.
+customer-service.tsx:1227 --- Final Accessory Categories from DB --- Array(6)
+customer-service.tsx:1228 All raw items found: Array(12)
+registered-customers.tsx:117 [Filters] Processing customers for filter extraction: 1
+registered-customers.tsx:120 [Filters] Customer data: Object
+registered-customers.tsx:131 [Filters] Address parts: Array(4)
+registered-customers.tsx:162 [Filters] Extracted filter options: Object
+registered-customers.tsx:254 [Export] Starting export process for 1 customers
+registered-customers.tsx:261 [Export] Normalized customers to export: 1
+registered-customers.tsx:269 [Export] Processing customer: ANIKET cus001
+registered-customers.tsx:392 [Export] Export data prepared, creating sheet. Row count: 1
+registered-customers.tsx:396 [Export] Writing file...
+registered-customers.tsx:398 [Export] Export successful
+registered-customers.tsx:117 [Filters] Processing customers for filter extraction: 0
+registered-customers.tsx:162 [Filters] Extracted filter options: Object
+registered-customers.tsx:604 Import error for row: Object Error: Row 1: Invalid Vehicle Type 'Mid-size Sedan / Compact SUV / MUV'. Must match dropdown options exactly.
+    at reader.onload (registered-customers.tsx:485:21)
+reader.onload @ registered-customers.tsx:604

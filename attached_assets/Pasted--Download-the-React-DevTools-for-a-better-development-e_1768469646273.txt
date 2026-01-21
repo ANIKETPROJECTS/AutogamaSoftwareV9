@@ -1,0 +1,51 @@
+ Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+ Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+(anonymous) @ chunk-OEDBKWQG.js?v=48795085:505
+ Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+(anonymous) @ chunk-OEDBKWQG.js?v=48795085:505
+ --- Final Accessory Categories from DB --- Array(6)
+ All raw items found: Array(12)
+customer-service.tsx:1295 --- Final Accessory Categories from DB --- Array(6)
+customer-service.tsx:1296 All raw items found: Array(12)
+customer-service.tsx:1295 --- Final Accessory Categories from DB --- Array(6)
+customer-service.tsx:1296 All raw items found: Array(12)
+customer-service.tsx:1295 --- Final Accessory Categories from DB --- Array(6)
+customer-service.tsx:1296 All raw items found: Array(12)
+registered-customers.tsx:117 [Filters] Processing customers for filter extraction: 0
+registered-customers.tsx:144 [Filters] Extracted filter options: Object
+registered-customers.tsx:117 [Filters] Processing customers for filter extraction: 2
+registered-customers.tsx:120 [Filters] Customer data: Object
+registered-customers.tsx:120 [Filters] Customer data: Object
+registered-customers.tsx:144 [Filters] Extracted filter options: Object
+register.tsx:711 DEBUG: Full Inventory Data Count 12
+register.tsx:713 DEBUG: First Inventory Item Keys Array(13)
+register.tsx:714 DEBUG: First Inventory Item Data Object
+register.tsx:730 DEBUG: Found PPF Item elite elite
+register.tsx:730 DEBUG: Found PPF Item garware matt garware matt
+register.tsx:730 DEBUG: Found PPF Item garware plus garware plus
+register.tsx:730 DEBUG: Found PPF Item garware premium garware premium
+register.tsx:759 DEBUG: Final ppfInventoryCategories Array(4)
+register.tsx:1184 DEBUG: Checkbox changed true
+register.tsx:1187 DEBUG: Ticking checkbox - refetching inventory...
+register.tsx:1190 DEBUG: Refetch completed Array(12)
+registered-customers.tsx:117 [Filters] Processing customers for filter extraction: 2
+registered-customers.tsx:120 [Filters] Customer data: Object
+registered-customers.tsx:120 [Filters] Customer data: Object
+registered-customers.tsx:144 [Filters] Extracted filter options: Object
+register.tsx:711 DEBUG: Full Inventory Data Count 12
+register.tsx:713 DEBUG: First Inventory Item Keys Array(13)
+register.tsx:714 DEBUG: First Inventory Item Data Object
+register.tsx:730 DEBUG: Found PPF Item elite elite
+register.tsx:730 DEBUG: Found PPF Item garware matt garware matt
+register.tsx:730 DEBUG: Found PPF Item garware plus garware plus
+register.tsx:730 DEBUG: Found PPF Item garware premium garware premium
+register.tsx:759 DEBUG: Final ppfInventoryCategories Array(4)
+register.tsx:1184 DEBUG: Checkbox changed true
+register.tsx:1187 DEBUG: Ticking checkbox - refetching inventory...
+register.tsx:1190 DEBUG: Refetch completed Array(12)
+chunk-OEDBKWQG.js?v=48795085:505 Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+(anonymous) @ chunk-OEDBKWQG.js?v=48795085:505
+register.tsx:982 Error checking customer existence: TypeError: Cannot read properties of undefined (reading '_id')
+    at confirmCompleteRegistration (register.tsx:978:90)
+confirmCompleteRegistration @ register.tsx:982
+api/customers:1  Failed to load resource: the server responded with a status of 500 (Internal Server Error)

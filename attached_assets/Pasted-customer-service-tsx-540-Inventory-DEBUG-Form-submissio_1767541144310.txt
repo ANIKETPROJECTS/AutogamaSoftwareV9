@@ -1,0 +1,56 @@
+customer-service.tsx:540 [Inventory DEBUG] Form submission started
+customer-service.tsx:1221 --- Final Accessory Categories from DB --- (4) ['Headgear', 'bro', 'new', 'test1']
+customer-service.tsx:1222 All raw items found: (9) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+api.ts:6  POST https://0af35ceb-456a-4f65-acb4-071a1c5734ff-00-vhhq3xgvbfqq.riker.replit.dev/api/jobs 500 (Internal Server Error)
+request @ api.ts:6
+create @ api.ts:50
+mutationFn @ customer-service.tsx:156
+fn @ @tanstack_react-query.js?v=39f07b8e:1152
+run @ @tanstack_react-query.js?v=39f07b8e:477
+start @ @tanstack_react-query.js?v=39f07b8e:518
+execute @ @tanstack_react-query.js?v=39f07b8e:1187
+await in execute
+mutate @ @tanstack_react-query.js?v=39f07b8e:2578
+(anonymous) @ @tanstack_react-query.js?v=39f07b8e:3234
+handleSubmit @ customer-service.tsx:624
+executeDispatch @ react-dom_client.js?v=39f07b8e:13622
+runWithFiberInDEV @ react-dom_client.js?v=39f07b8e:997
+processDispatchQueue @ react-dom_client.js?v=39f07b8e:13658
+(anonymous) @ react-dom_client.js?v=39f07b8e:14071
+batchedUpdates$1 @ react-dom_client.js?v=39f07b8e:2626
+dispatchEventForPluginEventSystem @ react-dom_client.js?v=39f07b8e:13763
+dispatchEvent @ react-dom_client.js?v=39f07b8e:16784
+dispatchDiscreteEvent @ react-dom_client.js?v=39f07b8e:16765
+customer-service.tsx:1221 --- Final Accessory Categories from DB --- (4) ['Headgear', 'bro', 'new', 'test1']
+customer-service.tsx:1222 All raw items found: (9) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1221 --- Final Accessory Categories from DB --- (4) ['Headgear', 'bro', 'new', 'test1']
+customer-service.tsx:1222 All raw items found: (9) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:540 [Inventory DEBUG] Form submission started
+customer-service.tsx:1221 --- Final Accessory Categories from DB --- (4) ['Headgear', 'bro', 'new', 'test1']
+customer-service.tsx:1222 All raw items found: (9) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+api.ts:6  POST https://0af35ceb-456a-4f65-acb4-071a1c5734ff-00-vhhq3xgvbfqq.riker.replit.dev/api/jobs 500 (Internal Server Error)
+request @ api.ts:6
+create @ api.ts:50
+mutationFn @ customer-service.tsx:156
+fn @ @tanstack_react-query.js?v=39f07b8e:1152
+run @ @tanstack_react-query.js?v=39f07b8e:477
+start @ @tanstack_react-query.js?v=39f07b8e:518
+execute @ @tanstack_react-query.js?v=39f07b8e:1187
+await in execute
+mutate @ @tanstack_react-query.js?v=39f07b8e:2578
+(anonymous) @ @tanstack_react-query.js?v=39f07b8e:3234
+handleSubmit @ customer-service.tsx:624
+executeDispatch @ react-dom_client.js?v=39f07b8e:13622
+runWithFiberInDEV @ react-dom_client.js?v=39f07b8e:997
+processDispatchQueue @ react-dom_client.js?v=39f07b8e:13658
+(anonymous) @ react-dom_client.js?v=39f07b8e:14071
+batchedUpdates$1 @ react-dom_client.js?v=39f07b8e:2626
+dispatchEventForPluginEventSystem @ react-dom_client.js?v=39f07b8e:13763
+dispatchEvent @ react-dom_client.js?v=39f07b8e:16784
+dispatchDiscreteEvent @ react-dom_client.js?v=39f07b8e:16765
+customer-service.tsx:1221 --- Final Accessory Categories from DB --- (4) ['Headgear', 'bro', 'new', 'test1']
+customer-service.tsx:1222 All raw items found: (9) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1221 --- Final Accessory Categories from DB --- (4) ['Headgear', 'bro', 'new', 'test1']
+customer-service.tsx:1222 All raw items found: (9) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1221 --- Final Accessory Categories from DB --- (4) ['Headgear', 'bro', 'new', 'test1']
+customer-service.tsx:1222 All raw items found: (9) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]

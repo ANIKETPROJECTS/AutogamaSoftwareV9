@@ -1,0 +1,31 @@
+root@srv1232657:/var/www/AutogamaSoftwareV4# pm2 status
+# Check logs if needed
+pm2 logs autogarage-crm
+┌────┬──────────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                         │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼──────────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 3  │ DM-pos                       │ default     │ 1.0.0   │ fork    │ 25708    │ 2D     │ 700  │ online    │ 0%       │ 116.2mb  │ root     │ disabled │
+│ 1  │ airavatatechnologies-web     │ default     │ 1.0.0   │ fork    │ 12849    │ 2D     │ 1    │ online    │ 0%       │ 100.4mb  │ root     │ disabled │
+│ 4  │ autogarage-crm               │ default     │ 1.0.0   │ fork    │ 38033    │ 95s    │ 0    │ online    │ 0%       │ 83.5mb   │ root     │ disabled │
+│ 0  │ restaurant-management-app    │ default     │ N/A     │ fork    │ 12465    │ 3D     │ 1    │ online    │ 0%       │ 78.8mb   │ root     │ disabled │
+│ 2  │ restaurant-pos               │ default     │ 1.0.0   │ cluster │ 17439    │ 2D     │ 2    │ online    │ 0%       │ 126.9mb  │ root     │ disabled │
+└────┴──────────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[TAILING] Tailing last 15 lines for [autogarage-crm] process (change the value with --lines option)
+/root/.pm2/logs/autogarage-crm-out.log last 15 lines:
+/root/.pm2/logs/autogarage-crm-error.log last 15 lines:
+4|autogara | TypeError [ERR_INVALID_ARG_VALUE]: The argument 'filename' must be a file URL object, file URL string, or absolute path string. Received undefined
+4|autogara |     at createRequire (node:internal/modules/cjs/loader:1696:11)
+4|autogara |     at Object.<anonymous> (/var/www/AutogamaSoftwareV4/dist/index.cjs:63:25401)
+4|autogara |     at Module._compile (node:internal/modules/cjs/loader:1529:14)
+4|autogara |     at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+4|autogara |     at Module.load (node:internal/modules/cjs/loader:1275:32)
+4|autogara |     at Module._load (node:internal/modules/cjs/loader:1096:12)
+4|autogara |     at cjsLoader (node:internal/modules/esm/translators:298:15)
+4|autogara |     at ModuleWrap.<anonymous> (node:internal/modules/esm/translators:240:7)
+4|autogara |     at ModuleJob.run (node:internal/modules/esm/module_job:263:25)
+4|autogara |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+4|autogara |   code: 'ERR_INVALID_ARG_VALUE'
+4|autogara | }
+
+
+

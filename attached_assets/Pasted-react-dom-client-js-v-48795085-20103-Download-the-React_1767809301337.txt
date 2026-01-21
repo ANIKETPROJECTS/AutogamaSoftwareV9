@@ -1,0 +1,32 @@
+react-dom_client.js?v=48795085:20103 Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+registered-customers.tsx:117 [Filters] Processing customers for filter extraction: 0
+registered-customers.tsx:162 [Filters] Extracted filter options: Object
+registered-customers.tsx:117 [Filters] Processing customers for filter extraction: 1
+registered-customers.tsx:120 [Filters] Customer data: Object
+registered-customers.tsx:131 [Filters] Address parts: Array(4)
+registered-customers.tsx:162 [Filters] Extracted filter options: Object
+registered-customers.tsx:254 [Export] Starting export process for 1 customers
+registered-customers.tsx:261 [Export] Normalized customers to export: 1
+registered-customers.tsx:269 [Export] Processing customer: ANIKET cus001
+registered-customers.tsx:340 [Export] Export data prepared, creating sheet. Row count: 1
+registered-customers.tsx:344 [Export] Writing file...
+registered-customers.tsx:349 [Export] Export failed error: Error: Text length must not exceed 32767 characters
+    at write_ws_xml_cell (xlsx.js?v=48795085:16695:40)
+    at write_ws_xml_data (xlsx.js?v=48795085:16959:19)
+    at write_ws_xml (xlsx.js?v=48795085:17031:13)
+    at write_zip_xlsx (xlsx.js?v=48795085:30834:30)
+    at write_zip (xlsx.js?v=48795085:30642:10)
+    at write_zip_type (xlsx.js?v=48795085:31101:11)
+    at writeSync (xlsx.js?v=48795085:31300:14)
+    at Module.writeFileSync (xlsx.js?v=48795085:31323:10)
+    at handleExport (registered-customers.tsx:345:12)
+    at executeDispatch (react-dom_client.js?v=48795085:13622:11)
+handleExport @ registered-customers.tsx:349
+executeDispatch @ react-dom_client.js?v=48795085:13622
+runWithFiberInDEV @ react-dom_client.js?v=48795085:997
+processDispatchQueue @ react-dom_client.js?v=48795085:13658
+(anonymous) @ react-dom_client.js?v=48795085:14071
+batchedUpdates$1 @ react-dom_client.js?v=48795085:2626
+dispatchEventForPluginEventSystem @ react-dom_client.js?v=48795085:13763
+dispatchEvent @ react-dom_client.js?v=48795085:16784
+dispatchDiscreteEvent @ react-dom_client.js?v=48795085:16765

@@ -1,0 +1,110 @@
+const XLSX = require('xlsx');
+
+const data = [
+  {
+    "Name": "John Doe",
+    "Phone": "9876543210",
+    "Email": "john@example.com",
+    "Address": "123 Street",
+    "City": "Mumbai",
+    "District": "Mumbai City",
+    "State": "Maharashtra",
+    "Referral Source": "Google Search",
+    "PPF Category": "Elite",
+    "Accessory Category": "Floor Mats",
+    "Service": "Full Detail",
+    "Vehicle Name": "Honda",
+    "Vehicle Model": "Civic",
+    "Vehicle Type": "Sedan",
+    "Year of Manufacture": "2022",
+    "Vehicle Number": "MH01AB1234",
+    "Chassis Number": "CH123456789",
+    "Color": "White"
+  },
+  {
+    "Name": "Jane Smith",
+    "Phone": "9876543211",
+    "Email": "jane@example.com",
+    "Address": "456 Road",
+    "City": "Pune",
+    "District": "Pune",
+    "State": "Maharashtra",
+    "Referral Source": "Social Media",
+    "PPF Category": "Garware Plus",
+    "Accessory Category": "Seat Covers",
+    "Service": "Ceramic Coating",
+    "Vehicle Name": "Toyota",
+    "Vehicle Model": "Fortuner",
+    "Vehicle Type": "SUV",
+    "Year of Manufacture": "2023",
+    "Vehicle Number": "MH12CD5678",
+    "Chassis Number": "CH987654321",
+    "Color": "Black"
+  },
+  {
+    "Name": "Rahul Kumar",
+    "Phone": "9876543212",
+    "Email": "rahul@example.com",
+    "Address": "789 Lane",
+    "City": "Bangalore",
+    "District": "Bangalore Urban",
+    "State": "Karnataka",
+    "Referral Source": "Friend/Family",
+    "PPF Category": "Garware Premium",
+    "Accessory Category": "Window Tint",
+    "Service": "General Service",
+    "Vehicle Name": "Hyundai",
+    "Vehicle Model": "Creta",
+    "Vehicle Type": "SUV",
+    "Year of Manufacture": "2021",
+    "Vehicle Number": "KA01EF9012",
+    "Chassis Number": "CH456789123",
+    "Color": "Silver"
+  },
+  {
+    "Name": "Anita Desai",
+    "Phone": "9876543213",
+    "Email": "anita@example.com",
+    "Address": "321 Avenue",
+    "City": "Delhi",
+    "District": "New Delhi",
+    "State": "Uttar Pradesh",
+    "Referral Source": "Walk-in",
+    "PPF Category": "Garware Matt",
+    "Accessory Category": "Audio System",
+    "Service": "Interior Cleaning",
+    "Vehicle Name": "Maruti",
+    "Vehicle Model": "Swift",
+    "Vehicle Type": "Hatchback",
+    "Year of Manufacture": "2020",
+    "Vehicle Number": "DL01GH3456",
+    "Chassis Number": "CH321654987",
+    "Color": "Red"
+  },
+  {
+    "Name": "Vikram Singh",
+    "Phone": "9876543214",
+    "Email": "vikram@example.com",
+    "Address": "654 Plaza",
+    "City": "Jaipur",
+    "District": "Jaipur",
+    "State": "Rajasthan",
+    "Referral Source": "Advertisement",
+    "PPF Category": "Elite",
+    "Accessory Category": "Body Cover",
+    "Service": "PPF Application",
+    "Vehicle Name": "Mahindra",
+    "Vehicle Model": "Thar",
+    "Vehicle Type": "SUV",
+    "Year of Manufacture": "2024",
+    "Vehicle Number": "RJ14IJ7890",
+    "Chassis Number": "CH789123456",
+    "Color": "Grey"
+  }
+];
+
+const ws = XLSX.utils.json_to_sheet(data);
+const wb = XLSX.utils.book_new();
+XLSX.utils.book_append_sheet(wb, ws, "Customers");
+XLSX.writeFile(wb, "test_files/sample_customers_v2.xlsx");
+console.log("File generated successfully at test_files/sample_customers_v2.xlsx");

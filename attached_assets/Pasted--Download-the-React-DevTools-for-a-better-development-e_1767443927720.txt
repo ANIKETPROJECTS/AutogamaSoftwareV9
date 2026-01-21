@@ -1,0 +1,72 @@
+ Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+ [Filters] Processing customers for filter extraction: 0
+ [Filters] Extracted filter options: Object
+ --- Final Accessory Categories from DB --- Array(3)
+ All raw items found: Array(8)
+ --- Final Accessory Categories from DB --- Array(3)
+ All raw items found: Array(8)
+ --- Final Accessory Categories from DB --- Array(3)
+ All raw items found: Array(8)
+ [Filters] Processing customers for filter extraction: 8
+ [Filters] Customer data: Object
+ [Filters] Address parts: Array(4)
+ [Filters] Customer data: Object
+ [Filters] Address parts: Array(4)
+ [Filters] Customer data: Object
+ [Filters] Address parts: Array(4)
+ [Filters] Customer data: Object
+ [Filters] Address parts: Array(4)
+ [Filters] Customer data: Object
+ [Filters] Address parts: Array(4)
+ [Filters] Customer data: Object
+ [Filters] Address parts: Array(4)
+ [Filters] Customer data: Object
+ [Filters] Address parts: Array(4)
+ [Filters] Customer data: Object
+ [Filters] Address parts: Array(4)
+ [Filters] Extracted filter options: Object
+ --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1144 All raw items found: Array(8)
+customer-service.tsx:1143 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1144 All raw items found: Array(8)
+customer-service.tsx:1143 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1144 All raw items found: Array(8)
+customer-service.tsx:1143 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1144 All raw items found: Array(8)
+customer-service.tsx:1143 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1144 All raw items found: Array(8)
+customer-service.tsx:1143 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1144 All raw items found: Array(8)
+customer-service.tsx:1143 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1144 All raw items found: Array(8)
+customer-service.tsx:1143 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1144 All raw items found: Array(8)
+customer-service.tsx:1143 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1144 All raw items found: Array(8)
+customer-service.tsx:1143 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1144 All raw items found: Array(8)
+customer-service.tsx:1143 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1144 All raw items found: Array(8)
+customer-service.tsx:1143 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1144 All raw items found: Array(8)
+customer-service.tsx:1143 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1144 All raw items found: Array(8)
+customer-service.tsx:1143 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1144 All raw items found: Array(8)
+customer-service.tsx:1143 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1144 All raw items found: Array(8)
+customer-service.tsx:1143 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1144 All raw items found: Array(8)
+customer-service.tsx:1143 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1144 All raw items found: Array(8)
+customer-service.tsx:1143 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1144 All raw items found: Array(8)
+api/jobs/69590dc9c612dc4beb11bb6f/materials:1  Failed to load resource: the server responded with a status of 500 (Internal Server Error)
+customer-service.tsx:165 Failed to add materials to job: Error: Inventory validation failed: rolls.0.unit: `rolls` is not a valid enum value for path `unit`., rolls.1.unit: `rolls` is not a valid enum value for path `unit`., rolls.2.unit: `rolls` is not a valid enum value for path `unit`., rolls.3.unit: `rolls` is not a valid enum value for path `unit`., rolls.4.unit: `rolls` is not a valid enum value for path `unit`.
+    at request (api.ts:16:11)
+    at async Object.mutationFn (customer-service.tsx:163:11)
+mutationFn @ customer-service.tsx:165
+customer-service.tsx:1143 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1144 All raw items found: Array(8)
+customer-service.tsx:1143 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1144 All raw items found: Array(8)

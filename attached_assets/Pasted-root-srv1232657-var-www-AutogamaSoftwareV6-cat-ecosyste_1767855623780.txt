@@ -1,0 +1,221 @@
+root@srv1232657:/var/www/AutogamaSoftwareV6# cat ecosystem.config.cjs
+module.exports = {
+  apps: [{
+    name: "autogarage-crm",
+    script: "./dist/index.cjs",
+    env: {
+      NODE_ENV: "production",
+      PORT: "3002",
+      MONGODB_URI: "mongodb://localhost:27017/autogarage",
+      SESSION_SECRET: "VaTxAJhw8TLyw9i0uyyY376FNe6Dq5mi0zOEjpLiKFlcrfcDD44G4XWE7Lhf+DyR7tYvcq6YaVpBlJpDCp5qCA=="
+    }
+  }]
+};
+root@srv1232657:/var/www/AutogamaSoftwareV6# pm2 list
+┌────┬──────────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                         │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼──────────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 3  │ DM-pos                       │ default     │ 1.0.0   │ fork    │ 25708    │ 8D     │ 700  │ online    │ 0%       │ 120.5mb  │ root     │ disabled │
+│ 1  │ airavatatechnologies-web     │ default     │ 1.0.0   │ fork    │ 12849    │ 9D     │ 1    │ online    │ 0%       │ 104.8mb  │ root     │ disabled │
+│ 8  │ autogarage-crm               │ default     │ 1.0.0   │ fork    │ 81311    │ 90s    │ 0    │ online    │ 0%       │ 85.1mb   │ root     │ disabled │
+│ 5  │ barrelborn                   │ default     │ 1.0.0   │ fork    │ 66946    │ 2D     │ 1    │ online    │ 0%       │ 151.8mb  │ root     │ disabled │
+│ 6  │ portfolio-app                │ default     │ N/A     │ fork    │ 68714    │ 2D     │ 2    │ online    │ 0%       │ 77.9mb   │ root     │ disabled │
+│ 0  │ restaurant-management-app    │ default     │ N/A     │ fork    │ 12465    │ 9D     │ 1    │ online    │ 0%       │ 78.9mb   │ root     │ disabled │
+│ 2  │ restaurant-pos               │ default     │ 1.0.0   │ cluster │ 17439    │ 8D     │ 2    │ online    │ 0%       │ 136.9mb  │ root     │ disabled │
+└────┴──────────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+root@srv1232657:/var/www/AutogamaSoftwareV6# pm2 logs
+[TAILING] Tailing last 15 lines for [all] processes (change the value with --lines option)
+/root/.pm2/pm2.log last 15 lines:
+PM2        | 2026-01-08T06:35:13: PM2 log: Stopping app:autogarage-crm id:4
+PM2        | 2026-01-08T06:35:13: PM2 log: App [autogarage-crm:4] exited with code [0] via signal [SIGINT]
+PM2        | 2026-01-08T06:35:13: PM2 log: pid=45836 msg=process killed
+PM2        | 2026-01-08T06:35:13: PM2 log: App [autogarage-crm:4] starting in -fork mode-
+PM2        | 2026-01-08T06:35:13: PM2 log: App [autogarage-crm:4] online
+PM2        | 2026-01-08T06:39:00: PM2 log: Stopping app:autogarage-crm id:4
+PM2        | 2026-01-08T06:39:00: PM2 log: App [autogarage-crm:4] exited with code [0] via signal [SIGINT]
+PM2        | 2026-01-08T06:39:00: PM2 log: pid=80596 msg=process killed
+PM2        | 2026-01-08T06:41:36: PM2 log: App [autogarage-crm:7] starting in -fork mode-
+PM2        | 2026-01-08T06:41:36: PM2 log: App [autogarage-crm:7] online
+PM2        | 2026-01-08T06:49:09: PM2 log: Stopping app:autogarage-crm id:7
+PM2        | 2026-01-08T06:49:09: PM2 log: App [autogarage-crm:7] exited with code [0] via signal [SIGINT]
+PM2        | 2026-01-08T06:49:09: PM2 log: pid=80835 msg=process killed
+PM2        | 2026-01-08T06:58:07: PM2 log: App [autogarage-crm:8] starting in -fork mode-
+PM2        | 2026-01-08T06:58:07: PM2 log: App [autogarage-crm:8] online
+
+/root/.pm2/logs/airavatatechnologies-web-error.log last 15 lines:
+/root/.pm2/logs/DM-pos-error.log last 15 lines:
+3|DM-pos   |   syscall: 'listen',
+3|DM-pos   |   address: '0.0.0.0',
+3|DM-pos   |   port: 5000
+3|DM-pos   | }
+3|DM-pos   | Error: listen EADDRINUSE: address already in use 0.0.0.0:5000
+3|DM-pos   |     at Server.setupListenHandle [as _listen2] (node:net:1902:16)
+3|DM-pos   |     at listenInCluster (node:net:1959:12)
+3|DM-pos   |     at doListen (node:net:2133:7)
+3|DM-pos   |     at process.processTicksAndRejections (node:internal/process/task_queues:83:21) {
+3|DM-pos   |   code: 'EADDRINUSE',
+3|DM-pos   |   errno: -98,
+3|DM-pos   |   syscall: 'listen',
+3|DM-pos   |   address: '0.0.0.0',
+3|DM-pos   |   port: 5000
+3|DM-pos   | }
+
+/root/.pm2/logs/barrelborn-error.log last 15 lines:
+/root/.pm2/logs/DM-pos-out.log last 15 lines:
+3|DM-pos   | 9:30:09 AM [express] GET /api/customers/4655465445 200 in 7ms :: {"_id":"695b84949d0ae83cb46c65bd","…
+3|DM-pos   | [Storage] Updating customer table info for phone: 465*******, tableNumber: T1, floorNumber: Ground Floor
+3|DM-pos   | 9:30:09 AM [express] GET /api/customers/695b84949d0ae83cb46c65bd/favorites 304 in 6ms :: {"favorites…
+3|DM-pos   | [Storage] Successfully updated customer - tableNumber: T1, floorNumber: Ground Floor
+3|DM-pos   | 9:30:09 AM [express] PATCH /api/customers/4655465445/seating 200 in 9ms :: {"_id":"695b84949d0ae83cb…
+3|DM-pos   | 9:30:11 AM [express] Table status changed: 4655465445 -> occupied
+3|DM-pos   | 9:30:11 AM [express] GET /api/customers/4655465445/table-status 200 in 7ms :: {"tableStatus":"occupi…
+3|DM-pos   | 9:30:41 AM [express] GET /api/customers/4655465445/table-status 304 in 6ms :: {"tableStatus":"occupi…
+3|DM-pos   | 9:31:11 AM [express] GET /api/customers/4655465445/table-status 304 in 6ms :: {"tableStatus":"occupi…
+3|DM-pos   | 9:31:28 AM [express] WebSocket client disconnected
+3|DM-pos   | 9:31:28 AM [express] WebSocket client disconnected
+3|DM-pos   | 9:31:33 AM [express] WebSocket client connected
+3|DM-pos   | 9:31:33 AM [express] WebSocket client connected
+3|DM-pos   | 9:59:16 AM [express] WebSocket client disconnected
+3|DM-pos   | 9:59:16 AM [express] WebSocket client disconnected
+
+/root/.pm2/logs/restaurant-management-app-error.log last 15 lines:
+0|restaura |     at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:291:17) {
+0|restaura |   errno: undefined,
+0|restaura |   code: 'ENOTFOUND',
+0|restaura |   syscall: 'querySrv',
+0|restaura |   hostname: '_mongodb._tcp.maharajafeast.bry0rcq.mongodb.net'
+0|restaura | }
+0|restaura | Failed to fetch from custom database: querySrv ENOTFOUND _mongodb._tcp.maharajafeast.bry0rcq.mongodb.net
+0|restaura | ⚠️ Admin admin skipping OTP (Email: true, OTP Required: false)
+0|restaura | ⚠️ Admin Barrelborn@admin skipping OTP (Email: true, OTP Required: false)
+0|restaura | ⚠️ Admin Barrelborn@admin skipping OTP (Email: true, OTP Required: false)
+0|restaura | ⚠️ Admin Barrelborn@admin skipping OTP (Email: true, OTP Required: false)
+0|restaura | ⚠️ Admin admin skipping OTP (Email: true, OTP Required: false)
+0|restaura | ⚠️ Admin admin skipping OTP (Email: true, OTP Required: false)
+0|restaura | ⚠️ Admin admin skipping OTP (Email: true, OTP Required: false)
+0|restaura | ⚠️ Admin Barrelborn@admin skipping OTP (Email: true, OTP Required: false)
+
+/root/.pm2/logs/portfolio-app-error.log last 15 lines:
+/root/.pm2/logs/airavatatechnologies-web-out.log last 15 lines:
+1|airavata | 4:55:55 PM [express] GET /api/.env 200 in 1ms
+1|airavata | 4:56:15 PM [express] GET /api_keys.json 200 in 2ms
+1|airavata | 4:56:15 PM [express] GET /apikeys.json 200 in 1ms
+1|airavata | 4:56:15 PM [express] GET /api-keys.json 200 in 3ms
+1|airavata | 11:32:59 AM [express] GET /api/.env 200 in 1ms
+1|airavata | 5:29:53 PM [express] GET /api/phpinfo.php 200 in 1ms
+1|airavata | 5:29:53 PM [express] GET /api/info.php 200 in 1ms
+1|airavata | 5:30:00 PM [express] GET /api/config.php 200 in 2ms
+1|airavata | 5:30:13 PM [express] GET /api/.env 200 in 4ms
+1|airavata | 5:30:33 PM [express] GET /api_keys.json 200 in 4ms
+1|airavata | 5:30:33 PM [express] GET /apikeys.json 200 in 1ms
+1|airavata | 5:30:33 PM [express] GET /api-keys.json 200 in 4ms
+1|airavata | 7:52:15 AM [express] GET /api-docs 200 in 1ms
+1|airavata | 7:52:16 AM [express] GET /api-docs.json 200 in 1ms
+1|airavata | 7:52:17 AM [express] GET /api/swagger.json 200 in 1ms
+
+/root/.pm2/logs/restaurant-pos-error-2.log last 15 lines:
+2|restaura | You have triggered an unhandledRejection, you may have forgotten to catch a Promise rejection:
+2|restaura | Error: Not connected to database for restaurant default-restaurant
+2|restaura |     at SessionStorage.getCollection (file:///var/www/RestrauntPOSV6/dist/index.js:804:13)
+2|restaura |     at SessionStorage.getCompletedOrders (file:///var/www/RestrauntPOSV6/dist/index.js:991:31)
+2|restaura |     at async file:///var/www/RestrauntPOSV6/dist/index.js:3209:20
+2|restaura | You have triggered an unhandledRejection, you may have forgotten to catch a Promise rejection:
+2|restaura | Error: Not connected to database for restaurant default-restaurant
+2|restaura |     at SessionStorage.getCollection (file:///var/www/RestrauntPOSV6/dist/index.js:804:13)
+2|restaura |     at SessionStorage.getActiveOrders (file:///var/www/RestrauntPOSV6/dist/index.js:986:31)
+2|restaura |     at async file:///var/www/RestrauntPOSV6/dist/index.js:3204:20
+2|restaura | You have triggered an unhandledRejection, you may have forgotten to catch a Promise rejection:
+2|restaura | Error: Not connected to database for restaurant default-restaurant
+2|restaura |     at SessionStorage.getCollection (file:///var/www/RestrauntPOSV6/dist/index.js:804:13)
+2|restaura |     at SessionStorage.getTables (file:///var/www/RestrauntPOSV6/dist/index.js:867:31)
+2|restaura |     at async file:///var/www/RestrauntPOSV6/dist/index.js:2917:20
+
+/root/.pm2/logs/portfolio-app-out.log last 15 lines:
+6|portfoli | hed_assets/Screenshot_2026-01-02_at_2.05.39_PM_1767342943907.png","galleryImages":["/attached_assets/Screenshot_2026-01-02_at_2.05.39_PM_1767342943907.png","/attached_assets/Screenshot_2026-01-02_at_2.12.06_PM_1767343331120.png","/attached_assets/Screenshot_2026-01-02_at_2.12.19_PM_1767343342141.png","/attached_assets/Screenshot_2026-01-02_at_2.12.33_PM_1767343356268.png","/attached_assets/Screenshot_2026-01-02_at_2.12.41_PM_1767343363906.png","/attached_assets/Screenshot_2026-01-02_at_2.13.07_PM_1767343391385.png","/attached_assets/Screenshot_2026-01-02_at_2.13.18_PM_1767343401276.png","/attached_assets/Screenshot_2026-01-02_at_2.13.26_PM_1767343409400.png","/attached_assets/Screenshot_2026-01-02_at_2.13.34_PM_1767343416852.png","/attached_assets/Screenshot_2026-01-02_at_2.13.41_PM_1767343423954.png","/attached_assets/Screenshot_2026-01-02_at_2.13.51_PM_1767343433276.png","/attached_assets/Screenshot_2026-01-02_at_2.13.58_PM_1767343441270.png","/attached_assets/Screenshot_2026-01-02_at_2.14.06_PM_1767343448709.png","/attached_assets/Screenshot_2026-01-02_at_2.14.13_PM_1767343455926.png","/attached_assets/Screenshot_2026-01-02_at_2.14.21_PM_1767343464082.png","/attached_assets/Screenshot_2026-01-02_at_2.14.30_PM_1767343473343.png","/attached_assets/Screenshot_2026-01-02_at_2.14.38_PM_1767343480871.png","/attached_assets/Screenshot_2026-01-02_at_2.14.46_PM_1767343488868.png","/attached_assets/Screenshot_2026-01-02_at_2.14.55_PM_1767343497424.png","/attached_assets/Screenshot_2026-01-02_at_2.15.03_PM_1767343505916.png"],"clientName":"Soryouth Renewable Energy","clientIndustry":"Renewable Energy / Solar EPC","clientLocation":"Pune, India","websiteUrl":"#","duration":"12 weeks","completedDate":"January 2026","technologies":["React","TypeScript","Node.js","Express.js","PostgreSQL","Tailwind CSS","Recharts","AWS","S3","JWT Authentication"],"features":["Problem: Solar installations lack real-time visibility | Solution: Real-time revenue & installation performance dashboards","Problem: Manual proposal generation is time-consuming | Solution: Lead management with automated quotation & proposal generation","Problem: Inaccurate site survey data | Solution: Site survey module with GPS tracking & documentation","Problem: Disorganized project workflows | Solution: Kanban-style project pipeline tracking","Problem: Inefficient solar component tracking | Solution: Inventory management for solar components","Problem: Complex subsidy and invoicing | Solution: Automated invoicing & subsidy tracking system","Problem: Manual vendor and contract tracking | Solution: Vendor & AMC (Annual Maintenance Contract) management"],"outcomes":["Problem: Manual site surveys were inefficient | Result: Digital survey module improved reporting speed by 50%","Problem: Lack of project visibility | Result: Real-time dashboards provided 100% transparency on installation progress","Problem: Complex subsidy and invoicing | Result: Automated system reduced payment processing time by 30%"]}
+
+/root/.pm2/logs/restaurant-pos-out-2.log last 15 lines:
+2|restaura | 2:43:04 PM [express] GET /api/orders/eee40c85-2b94-4c99-98b5-af9b31a6ad62/items 304 in 19ms :: [{"_i…
+2|restaura | 2:43:04 PM [express] GET /api/orders/42b68e8e-eaee-4321-bf4c-e5cf93e0f0fb/items 304 in 9ms :: [{"_id…
+2|restaura | 2:45:19 PM [express] GET /api/tables 304 in 13ms :: [{"_id":"690c3a46c2ef7353e91cf09d","id":"668c035…
+2|restaura | 2:45:19 PM [express] GET /api/reservations 304 in 13ms :: []
+2|restaura | 2:45:19 PM [express] GET /api/floors 304 in 6ms :: [{"_id":"690c3a45c2ef7353e91cf09c","id":"ea882a8b…
+2|restaura | 2:45:19 PM [express] GET /api/orders 304 in 5ms :: [{"_id":"695e5a852d279d0a26137822","id":"88cb7df4…
+2|restaura | 2:51:32 PM [express] GET /api/reservations 304 in 5ms :: []
+2|restaura | 2:51:32 PM [express] GET /api/tables 304 in 6ms :: [{"_id":"690c3a46c2ef7353e91cf09d","id":"668c0355…
+2|restaura | 2:51:33 PM [express] GET /api/floors 304 in 7ms :: [{"_id":"690c3a45c2ef7353e91cf09c","id":"ea882a8b…
+2|restaura | 2:51:33 PM [express] GET /api/orders 304 in 8ms :: [{"_id":"695e5a852d279d0a26137822","id":"88cb7df4…
+2|restaura | 3:10:39 PM [express] GET /api/reservations 304 in 5ms :: []
+2|restaura | 3:10:39 PM [express] GET /api/tables 304 in 8ms :: [{"_id":"690c3a46c2ef7353e91cf09d","id":"668c0355…
+2|restaura | 3:10:40 PM [express] GET /api/floors 304 in 7ms :: [{"_id":"690c3a45c2ef7353e91cf09c","id":"ea882a8b…
+2|restaura | 3:10:40 PM [express] GET /api/orders 304 in 7ms :: [{"_id":"695e5a852d279d0a26137822","id":"88cb7df4…
+2|restaura | Closing idle connection for restaurant: default-restaurant
+
+/root/.pm2/logs/barrelborn-out.log last 15 lines:
+5|barrelbo | [Storage] Fetching items for category: craft-beers-on-tap
+5|barrelbo | [Storage] Found 9 items in barrelborn.craft-beers-on-tap
+5|barrelbo | 9:02:14 PM [express] GET /api/menu-items 200 in 23ms :: [{"_id":"694ec81a2a66913362954a07","name":"B…
+5|barrelbo | [API] Fetching menu items for category: draught-beer
+5|barrelbo | [Storage] Fetching items for category: draught-beer
+5|barrelbo | [Storage] Found 1 items in barrelborn.draught-beer
+5|barrelbo | 9:02:16 PM [express] GET /api/menu-items 200 in 6ms :: [{"_id":"694ec81a2a66913362954a0d","name":"Ki…
+5|barrelbo | [API] Fetching menu items for category: undefined
+5|barrelbo | 9:08:52 PM [express] GET /api/menu-items 200 in 665ms :: [{"_id":"694ec9302a66913362954b33","name":"…
+5|barrelbo | [API] Fetching menu items for category: undefined
+5|barrelbo | [API] Fetching menu items for category: nibbles
+5|barrelbo | [Storage] Fetching items for category: nibbles
+5|barrelbo | [Storage] Found 5 items in barrelborn.nibbles
+5|barrelbo | 5:48:54 AM [express] GET /api/menu-items 200 in 30ms :: [{"_id":"6959fd834ad9b118b9ec35df","name":"J…
+5|barrelbo | 5:48:54 AM [express] GET /api/menu-items 200 in 1226ms :: [{"_id":"694ec9302a66913362954b33","name":…
+
+/root/.pm2/logs/restaurant-management-app-out.log last 15 lines:
+0|restaura |   'tequila',
+0|restaura |   'titbits',
+0|restaura |   'vodka',
+0|restaura |   'white-wines',
+0|restaura |   'wine-cocktails',
+0|restaura |   'wok'
+0|restaura | ]
+0|restaura | 🔍 Current restaurant categories: [american-irish-whiskey, artisan-pizzas, asian-mains, bao-dimsum, biryanis-rice, blended-scotch-whisky, blended-whisky, breads, charcoal, classic-cocktails, cognac-brandy, continental, craft-beers-on-tap, dals, dessert-wines, draught-beer, entree, gin, indian-mains-curries, liqueurs, mangalorean-style, mini-burger-sliders, nibbles, pasta, pint-beers, pizza, port-wine, red-wines, rice-noodles, rice-with-curry---thai-asian-bowls, rose-wines, rum, salads, sangria, signature-cocktails, signature-mocktails, signature-shots, single-malt-whisky, sizzlers, soft-beverages, soups, sparkling-wine, tequila, titbits, vodka, white-wines, wine-cocktails, wok]
+0|restaura | 🔍 Extracted categories: [american-irish-whiskey, artisan-pizzas, asian-mains, bao-dimsum, biryanis-rice, blended-scotch-whisky, blended-whisky, breads, charcoal, classic-cocktails, cognac-brandy, continental, craft-beers-on-tap, dals, dessert-wines, draught-beer, entree, gin, indian-mains-curries, liqueurs, mangalorean-style, mini-burger-sliders, nibbles, pasta, pint-beers, pizza, port-wine, red-wines, rice-noodles, rice-with-curry---thai-asian-bowls, rose-wines, rum, salads, sangria, signature-cocktails, signature-mocktails, signature-shots, single-malt-whisky, sizzlers, soft-beverages, soups, sparkling-wine, tequila, titbits, vodka, white-wines, wine-cocktails, wok]
+0|restaura | 📋 Categories are already up to date
+0|restaura | 11:17:07 AM [express] [API Request] GET /api/admin/restaurants/694eb7940a2686b72444282d/menu-items 200 in 1924ms :: Response Body: [{"_id":"6959fd874ad9b118b9ec367a","name":"Blue Pea Rice Bowls - Veg","description":"Vibra… (truncated)
+0|restaura | 6:26:32 AM [express] [API Request] GET /api-docs 200 in 1ms
+0|restaura | 6:26:37 AM [express] [API Request] GET /api/swagger.json 200 in 1ms
+0|restaura | 8:15:32 PM [express] [API Request] GET /api/.git/config 200 in 3ms
+0|restaura | 5:52:20 AM [express] [API Request] GET /api/.git/config 200 in 1ms
+
+/root/.pm2/logs/autogarage-crm-out.log last 15 lines:
+8|autogara | 1:00:50 PM [express] GET /api/customers 200 in 5ms
+8|autogara | 1:00:55 PM [express] GET /api/customers 200 in 8ms
+8|autogara | 1:00:56 PM [express] GET /api/inventory 304 in 12ms
+8|autogara | 1:00:58 PM [express] GET /api/invoices 200 in 74ms
+8|autogara | 1:01:03 PM [express] GET /api/jobs 200 in 6ms
+8|autogara | 1:01:03 PM [express] GET /api/customers 304 in 8ms
+8|autogara | 1:01:03 PM [express] GET /api/appointments 304 in 6ms
+8|autogara | 1:01:03 PM [express] GET /api/invoices 304 in 49ms
+8|autogara | 1:01:10 PM [express] GET /api/dashboard 200 in 9ms
+8|autogara | 1:01:10 PM [express] GET /api/inventory 304 in 9ms
+8|autogara | 1:01:10 PM [express] GET /api/price-inquiries 304 in 7ms
+8|autogara | 1:01:12 PM [express] GET /api/inventory 304 in 9ms
+8|autogara | MongoDB connected successfully
+8|autogara | [WhatsApp] Templates initialized
+8|autogara | 6:35:15 AM [express] serving on port 3002
+
+/root/.pm2/logs/autogarage-crm-error.log last 15 lines:
+8|autogara |   code: undefined,
+8|autogara |   cause: TopologyDescription {
+8|autogara |     type: 'Unknown',
+8|autogara |     servers: Map(1) { 'localhost:27017' => [ServerDescription] },
+8|autogara |     stale: false,
+8|autogara |     compatible: true,
+8|autogara |     heartbeatFrequencyMS: 10000,
+8|autogara |     localThresholdMS: 15,
+8|autogara |     setName: null,
+8|autogara |     maxElectionId: null,
+8|autogara |     maxSetVersion: null,
+8|autogara |     commonWireVersion: 0,
+8|autogara |     logicalSessionTimeoutMinutes: null
+8|autogara |   }
+8|autogara | }
+
+

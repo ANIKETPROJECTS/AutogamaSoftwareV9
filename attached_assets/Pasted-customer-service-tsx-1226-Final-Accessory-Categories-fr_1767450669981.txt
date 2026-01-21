@@ -1,0 +1,52 @@
+customer-service.tsx:1226 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1227 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1226 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1227 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1226 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1227 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1226 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1227 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1226 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1227 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1226 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1227 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1226 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1227 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1226 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1227 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1226 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1227 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1226 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1227 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1226 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1227 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:540 [Inventory DEBUG] Form submission started
+customer-service.tsx:555 [Inventory DEBUG] PPF category: Elite Inventory item found: 694e278d116754823b162922
+customer-service.tsx:561 [Inventory DEBUG] Attempting deduction for Elite (ID: 694e278d116754823b162922) - Amount: 1
+api.ts:6  PATCH https://c24c9138-9e03-41e2-af3e-dc06e128d18c-00-29uc9x6qzvi2c.riker.replit.dev/api/inventory/694e278d116754823b162922/consume-fifo 400 (Bad Request)
+request @ api.ts:6
+consumeRollsWithFIFO @ api.ts:90
+handleSubmit @ customer-service.tsx:563
+executeDispatch @ react-dom_client.js?v=39f07b8e:13622
+runWithFiberInDEV @ react-dom_client.js?v=39f07b8e:997
+processDispatchQueue @ react-dom_client.js?v=39f07b8e:13658
+(anonymous) @ react-dom_client.js?v=39f07b8e:14071
+batchedUpdates$1 @ react-dom_client.js?v=39f07b8e:2626
+dispatchEventForPluginEventSystem @ react-dom_client.js?v=39f07b8e:13763
+dispatchEvent @ react-dom_client.js?v=39f07b8e:16784
+dispatchDiscreteEvent @ react-dom_client.js?v=39f07b8e:16765
+customer-service.tsx:566 [Inventory DEBUG] Roll deduction failed: Error: Insufficient stock or item not found
+    at request (api.ts:16:11)
+    at async handleSubmit (customer-service.tsx:563:11)
+handleSubmit @ customer-service.tsx:566
+await in handleSubmit
+executeDispatch @ react-dom_client.js?v=39f07b8e:13622
+runWithFiberInDEV @ react-dom_client.js?v=39f07b8e:997
+processDispatchQueue @ react-dom_client.js?v=39f07b8e:13658
+(anonymous) @ react-dom_client.js?v=39f07b8e:14071
+batchedUpdates$1 @ react-dom_client.js?v=39f07b8e:2626
+dispatchEventForPluginEventSystem @ react-dom_client.js?v=39f07b8e:13763
+dispatchEvent @ react-dom_client.js?v=39f07b8e:16784
+dispatchDiscreteEvent @ react-dom_client.js?v=39f07b8e:16765
+customer-service.tsx:1226 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1227 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]

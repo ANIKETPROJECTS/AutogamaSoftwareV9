@@ -1,0 +1,111 @@
+PART 1: Create Meta Business Account
+
+
+Step 1: Go to business.facebook.com
+
+Step 2: Click "Create Account" or log in if you already have one
+
+Step 3: Enter your business details:
+
+Business name: 
+Your garage name
+Your name
+Business email
+
+
+Step 4: Verify your business (Meta may ask for business documents)
+
+
+
+PART 2: Create Meta Developer App
+
+
+Step 1: Go to developers.facebook.com
+
+Step 2: Click "My Apps" → "Create App"
+
+Step 3: Select app type: "Business"
+
+Step 4: Enter app details:
+
+App name: "AutoGarage CRM"
+Contact email: Your email
+Business Account: Select your business
+Step 5: Click "Create App"
+
+
+
+PART 3: Add WhatsApp to Your App
+
+Step 1: In your app dashboard, find "Add Products"
+
+Step 2: Find "WhatsApp" and click "Set Up"
+
+Step 3: Complete the Embedded Signup:
+
+Connect your Facebook Business Account
+Add a phone number for WhatsApp Business
+Verify the phone number via SMS/call
+Step 4: After setup, you'll see:
+
+Your Phone Number ID (copy this)
+Your WhatsApp Business Account ID (copy this)
+
+
+
+PART 4: Generate Access Token
+
+Step 1: Go to business.facebook.com → Settings
+
+Step 2: Click "Users" → "System Users"
+
+Step 3: Click "Add" to create a new system user:
+
+Name: "CRM Bot"
+Role: Admin
+Step 4: Click on the user → "Add Assets" → Select your WhatsApp Business Account
+
+
+Step 5: Click "Generate New Token":
+
+Select your app
+Check permission: whatsapp_business_messaging
+Click "Generate Token"
+Step 6: Copy the token immediately (it won't show again!)
+
+
+
+PART 5: Create Message Templates
+
+Step 1: Go to business.facebook.com → WhatsApp Manager
+
+Step 2: Click "Message Templates" → "Create Template"
+
+Step 3: Create these 6 templates:
+
+Template Name	              Category	                    Message
+service_new_lead	      Utility	                    Welcome! Your {{1}} ({{2}}) has been registered. We will contact you shortly.
+service_inspection_done	      Utility	                    Inspection completed for your {{1}} ({{2}}). Our team will share the report soon.
+service_work_in_progress      Utility	                    Work has started on your {{1}} ({{2}}). We will keep you updated.
+service_ready_for_delivery    Utility	                    Great news! Your {{1}} ({{2}}) is ready for pickup. Please visit us at your convenience.
+service_completed	      Utility	                    Thank you for choosing us! Service completed for your {{1}} ({{2}}). We hope to see you again!
+service_cancelled	      Utility	                    Your service request for {{1}} ({{2}}) has been cancelled. Contact us for any queries.
+Step 4: Submit each template for approval (takes 1-5 days)
+
+
+
+PART 6: Provide Credentials to Me
+
+Once you have everything ready, provide me these 3 secrets:
+
+Secret Name	                               What It Is
+WHATSAPP_ACCESS_TOKEN	                       The token you generated in Part 4, Step 6
+WHATSAPP_PHONE_NUMBER_ID	               Found in WhatsApp Settings (Part 3, Step 4)
+WHATSAPP_BUSINESS_ACCOUNT_ID	               Found in WhatsApp Settings (Part 3, Step 4)
+
+
+What Happens After You Provide Credentials
+I'll add them as secrets to your app
+I'll update the WhatsApp code to use the real API
+When you change service status in the funnel → WhatsApp message automatically sends to customer!
+

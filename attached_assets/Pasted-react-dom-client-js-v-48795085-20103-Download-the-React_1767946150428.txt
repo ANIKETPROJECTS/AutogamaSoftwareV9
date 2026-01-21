@@ -1,0 +1,26 @@
+react-dom_client.js?v=48795085:20103 Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+register.tsx:596 DB Services received: Array(0)
+register.tsx:603 Final filtered PPF categories: Array(0)
+register.tsx:596 DB Services received: Array(0)
+register.tsx:603 Final filtered PPF categories: Array(0)
+register.tsx:596 DB Services received: Array(19)
+register.tsx:600 Checking service: Ceramic Coating – 9H, isPpf: false, isPPF: undefined, match: false
+register.tsx:600 Checking service: Ceramic Coating – KOCH CHEMIE, isPpf: false, isPPF: undefined, match: false
+register.tsx:600 Checking service: Ceramic Coating – MAFRA, isPpf: false, isPPF: undefined, match: false
+register.tsx:600 Checking service: Ceramic Coating – MENZA PRO, isPpf: false, isPPF: undefined, match: false
+register.tsx:600 Checking service: Corrosion Treatment, isPpf: false, isPPF: undefined, match: false
+register.tsx:600 Checking service: Detailing, isPpf: false, isPPF: undefined, match: false
+register.tsx:600 Checking service: Foam Washing, isPpf: false, isPPF: undefined, match: false
+register.tsx:600 Checking service: Interior Cleaning, isPpf: false, isPPF: undefined, match: false
+register.tsx:600 Checking service: Interior Steam Cleaning, isPpf: false, isPPF: undefined, match: false
+register.tsx:600 Checking service: Leather Treatment, isPpf: false, isPPF: undefined, match: false
+register.tsx:600 Checking service: Paint Sealant Coating (Teflon), isPpf: false, isPPF: undefined, match: false
+register.tsx:600 Checking service: Premium Washing, isPpf: false, isPPF: undefined, match: false
+register.tsx:600 Checking service: Sun Control Film – Ceramic, isPpf: false, isPPF: undefined, match: false
+register.tsx:600 Checking service: Sun Control Film – Economy, isPpf: false, isPPF: undefined, match: false
+register.tsx:600 Checking service: Sun Control Film – Premium, isPpf: false, isPPF: undefined, match: false
+register.tsx:600 Checking service: Sun Control Film – Standard, isPpf: false, isPPF: undefined, match: false
+register.tsx:600 Checking service: Windshield Coating, isPpf: false, isPPF: undefined, match: false
+register.tsx:600 Checking service: Windshield Coating All Glasses, isPpf: false, isPPF: undefined, match: false
+register.tsx:600 Checking service: test, isPpf: false, isPPF: undefined, match: false
+register.tsx:603 Final filtered PPF categories: Array(0)

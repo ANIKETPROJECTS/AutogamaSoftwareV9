@@ -1,0 +1,67 @@
+react-dom_client.js?v=48795085:20103 Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+register.tsx:699 DEBUG: Full Inventory Data Count 0
+register.tsx:747 DEBUG: Final ppfInventoryCategories Array(0)
+register.tsx:699 DEBUG: Full Inventory Data Count 12
+register.tsx:701 DEBUG: First Inventory Item Keys Array(13)
+register.tsx:702 DEBUG: First Inventory Item Data Object
+register.tsx:718 DEBUG: Found PPF Item elite elite
+register.tsx:718 DEBUG: Found PPF Item garware matt garware matt
+register.tsx:718 DEBUG: Found PPF Item garware plus garware plus
+register.tsx:718 DEBUG: Found PPF Item garware premium garware premium
+register.tsx:747 DEBUG: Final ppfInventoryCategories Array(4)
+register.tsx:1091 DEBUG: Checkbox changed true
+register.tsx:1094 DEBUG: Ticking checkbox - refetching inventory...
+register.tsx:1097 DEBUG: Refetch completed Array(12)
+register.tsx:1378 DEBUG: Category selected from product dropdown Garware Plus
+chunk-OEDBKWQG.js?v=48795085:505 Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+(anonymous) @ chunk-OEDBKWQG.js?v=48795085:505
+react-dom_client.js?v=48795085:11686 Cannot update a component (`RequireAuth`) while rendering a different component (`Invoices`). To locate the bad setState() call inside `Invoices`, follow the stack trace as described in https://react.dev/link/setstate-in-render
+scheduleUpdateOnFiber @ react-dom_client.js?v=48795085:11686
+react-dom_client.js?v=48795085:7149 Uncaught Error: There was an error during concurrent rendering but React was able to recover by instead synchronously rendering the entire root.
+    at throwException (react-dom_client.js?v=48795085:7149:11)
+    at throwAndUnwindWorkLoop (react-dom_client.js?v=48795085:12622:15)
+    at renderRootSync (react-dom_client.js?v=48795085:12405:139)
+    at performWorkOnRoot (react-dom_client.js?v=48795085:11766:189)
+    at performSyncWorkOnRoot (react-dom_client.js?v=48795085:13517:9)
+    at flushSyncWorkAcrossRoots_impl (react-dom_client.js?v=48795085:13414:122)
+    at processRootScheduleInMicrotask (react-dom_client.js?v=48795085:13437:106)
+    at react-dom_client.js?v=48795085:13531:15Caused by: Error: Too many re-renders. React limits the number of renders to prevent an infinite loop.
+    at renderWithHooksAgain (react-dom_client.js?v=48795085:5714:19)
+    at renderWithHooks (react-dom_client.js?v=48795085:5656:67)
+    at updateFunctionComponent (react-dom_client.js?v=48795085:7475:21)
+    at beginWork (react-dom_client.js?v=48795085:8525:20)
+    at runWithFiberInDEV (react-dom_client.js?v=48795085:997:72)
+    at performUnitOfWork (react-dom_client.js?v=48795085:12561:98)
+    at workLoopSync (react-dom_client.js?v=48795085:12424:43)
+    at renderRootSync (react-dom_client.js?v=48795085:12408:13)
+    at performWorkOnRoot (react-dom_client.js?v=48795085:11766:189)
+    at performSyncWorkOnRoot (react-dom_client.js?v=48795085:13517:9)
+client:865 [vite] server connection lost. Polling for restart...
+api/inventory/rolls:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+api/invoices/manual:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)

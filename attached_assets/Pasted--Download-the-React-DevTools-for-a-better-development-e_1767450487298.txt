@@ -1,0 +1,47 @@
+ Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+ [Filters] Processing customers for filter extraction: 0
+registered-customers.tsx:157 [Filters] Extracted filter options: Object
+registered-customers.tsx:112 [Filters] Processing customers for filter extraction: 1
+registered-customers.tsx:115 [Filters] Customer data: Object
+registered-customers.tsx:126 [Filters] Address parts: Array(4)
+registered-customers.tsx:157 [Filters] Extracted filter options: Object
+chunk-OEDBKWQG.js?v=39f07b8e:505 Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+(anonymous) @ chunk-OEDBKWQG.js?v=39f07b8e:505
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1229 All raw items found: Array(8)
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1229 All raw items found: Array(8)
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1229 All raw items found: Array(8)
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1229 All raw items found: Array(8)
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1229 All raw items found: Array(8)
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1229 All raw items found: Array(8)
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1229 All raw items found: Array(8)
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1229 All raw items found: Array(8)
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1229 All raw items found: Array(8)
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1229 All raw items found: Array(8)
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1229 All raw items found: Array(8)
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1229 All raw items found: Array(8)
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1229 All raw items found: Array(8)
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1229 All raw items found: Array(8)
+customer-service.tsx:540 [Inventory DEBUG] Form submission started
+customer-service.tsx:555 [Inventory DEBUG] PPF category: Elite Inventory item found: 694e278d116754823b162922
+customer-service.tsx:561 [Inventory DEBUG] Deducting 1 sqft from Elite
+api/inventory/694e278d116754823b162922/consume-fifo:1  Failed to load resource: the server responded with a status of 400 (Bad Request)
+customer-service.tsx:567 [Inventory DEBUG] Roll deduction failed: Error: Failed to consume materials
+    at request (api.ts:16:11)
+    at async handleSubmit (customer-service.tsx:564:11)
+handleSubmit @ customer-service.tsx:567
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- Array(3)
+customer-service.tsx:1229 All raw items found: Array(8)

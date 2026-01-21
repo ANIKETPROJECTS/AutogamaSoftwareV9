@@ -1,0 +1,89 @@
+react-dom_client.js?v=39f07b8e:20103 Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+customer-service.tsx:1195 --- Final Accessory Categories from DB --- []
+customer-service.tsx:1196 All raw items found: []
+customer-service.tsx:1195 --- Final Accessory Categories from DB --- []
+customer-service.tsx:1196 All raw items found: []
+customer-service.tsx:1195 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1196 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+registered-customers.tsx:112 [Filters] Processing customers for filter extraction: 0
+registered-customers.tsx:157 [Filters] Extracted filter options: {cities: Array(0), districts: Array(0), states: Array(0)}
+registered-customers.tsx:112 [Filters] Processing customers for filter extraction: 1
+registered-customers.tsx:115 [Filters] Customer data: {name: 'ANIKET', address: 'mumbai, THANE, , Maharashtra', city: undefined, district: undefined, state: undefined}
+registered-customers.tsx:126 [Filters] Address parts: (4) ['mumbai', 'THANE', '', 'Maharashtra']
+registered-customers.tsx:157 [Filters] Extracted filter options: {cities: Array(1), districts: Array(0), states: Array(1)}
+registered-customers.tsx:112 [Filters] Processing customers for filter extraction: 1
+registered-customers.tsx:115 [Filters] Customer data: {name: 'ANIKET', address: 'mumbai, THANE, , Maharashtra', city: undefined, district: undefined, state: undefined}
+registered-customers.tsx:126 [Filters] Address parts: (4) ['mumbai', 'THANE', '', 'Maharashtra']
+registered-customers.tsx:157 [Filters] Extracted filter options: {cities: Array(1), districts: Array(0), states: Array(1)}
+customer-service.tsx:1195 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1196 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1195 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1196 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1195 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1196 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1195 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1196 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1195 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1196 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1195 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1196 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1195 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1196 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1195 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1196 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1195 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1196 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1195 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1196 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1195 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1196 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1195 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1196 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1195 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1196 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+api.ts:6  POST https://2353db61-e2c2-472b-ad99-720b143f1ae0-00-180tpn2q97z2x.spock.replit.dev/api/jobs/69591c3803ee07f296738567/materials 500 (Internal Server Error)
+request @ api.ts:6
+addMaterials @ api.ts:59
+mutationFn @ customer-service.tsx:163
+await in mutationFn
+fn @ @tanstack_react-query.js?v=39f07b8e:1152
+run @ @tanstack_react-query.js?v=39f07b8e:477
+start @ @tanstack_react-query.js?v=39f07b8e:518
+execute @ @tanstack_react-query.js?v=39f07b8e:1187
+await in execute
+mutate @ @tanstack_react-query.js?v=39f07b8e:2578
+(anonymous) @ @tanstack_react-query.js?v=39f07b8e:3234
+handleSubmit @ customer-service.tsx:609
+executeDispatch @ react-dom_client.js?v=39f07b8e:13622
+runWithFiberInDEV @ react-dom_client.js?v=39f07b8e:997
+processDispatchQueue @ react-dom_client.js?v=39f07b8e:13658
+(anonymous) @ react-dom_client.js?v=39f07b8e:14071
+batchedUpdates$1 @ react-dom_client.js?v=39f07b8e:2626
+dispatchEventForPluginEventSystem @ react-dom_client.js?v=39f07b8e:13763
+dispatchEvent @ react-dom_client.js?v=39f07b8e:16784
+dispatchDiscreteEvent @ react-dom_client.js?v=39f07b8e:16765
+customer-service.tsx:165 Failed to add materials to job: Error: Insufficient stock for Elite. Available: 150, Requested: 600
+    at request (api.ts:16:11)
+    at async Object.mutationFn (customer-service.tsx:163:11)
+mutationFn @ customer-service.tsx:165
+await in mutationFn
+fn @ @tanstack_react-query.js?v=39f07b8e:1152
+run @ @tanstack_react-query.js?v=39f07b8e:477
+start @ @tanstack_react-query.js?v=39f07b8e:518
+execute @ @tanstack_react-query.js?v=39f07b8e:1187
+await in execute
+mutate @ @tanstack_react-query.js?v=39f07b8e:2578
+(anonymous) @ @tanstack_react-query.js?v=39f07b8e:3234
+handleSubmit @ customer-service.tsx:609
+executeDispatch @ react-dom_client.js?v=39f07b8e:13622
+runWithFiberInDEV @ react-dom_client.js?v=39f07b8e:997
+processDispatchQueue @ react-dom_client.js?v=39f07b8e:13658
+(anonymous) @ react-dom_client.js?v=39f07b8e:14071
+batchedUpdates$1 @ react-dom_client.js?v=39f07b8e:2626
+dispatchEventForPluginEventSystem @ react-dom_client.js?v=39f07b8e:13763
+dispatchEvent @ react-dom_client.js?v=39f07b8e:16784
+dispatchDiscreteEvent @ react-dom_client.js?v=39f07b8e:16765
+customer-service.tsx:1195 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1196 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1195 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1196 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]

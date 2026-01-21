@@ -1,0 +1,16 @@
+react-dom_client.js?v=48795085:20103 Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+register.tsx:693 DEBUG: Computing ppfCategoriesFromInventory {inventoryLength: 0, dbPpfCategoriesLength: 0}
+register.tsx:713 DEBUG: All PPF Category Names []
+register.tsx:738 DEBUG: Computing selectedPpfProducts {ppfCategory: '', inventoryLength: 0}
+register.tsx:744 DEBUG: Full Inventory Data: []
+register.tsx:693 DEBUG: Computing ppfCategoriesFromInventory {inventoryLength: 0, dbPpfCategoriesLength: 0}
+register.tsx:713 DEBUG: All PPF Category Names []
+register.tsx:738 DEBUG: Computing selectedPpfProducts {ppfCategory: '', inventoryLength: 0}
+register.tsx:744 DEBUG: Full Inventory Data: []
+register.tsx:693 DEBUG: Computing ppfCategoriesFromInventory {inventoryLength: 12, dbPpfCategoriesLength: 6}
+register.tsx:713 DEBUG: All PPF Category Names (6) ['Elite', 'Garware Matt', 'Garware Plus', 'Garware Premium', 'k', 'lll']
+register.tsx:738 DEBUG: Computing selectedPpfProducts {ppfCategory: '', inventoryLength: 12}
+register.tsx:744 DEBUG: Full Inventory Data: (12) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+register.tsx:1072 DEBUG: Checkbox changed true
+register.tsx:1075 DEBUG: Ticking checkbox - refetching inventory...
+register.tsx:1078 DEBUG: Refetch completed (12) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]0: {isPpf: false, _id: '695e829e0b39167bb63a5507', name: 'Microfiber Cloth', category: 'Cleaning', quantity: 50, …}1: {isPpf: false, _id: '695e829e0b39167bb63a5504', name: 'Test Accessory 2', category: 'Electronics', quantity: 5, …}2: {isPpf: false, _id: '694e278d116754823b162922', name: 'Elite', category: 'Elite', quantity: 0, …}3: {isPpf: false, _id: '694e278d116754823b162923', name: 'Garware Matt', category: 'Garware Matt', quantity: 1389, …}4: {isPpf: false, _id: '694e278d116754823b162924', name: 'Garware Plus', category: 'Garware Plus', quantity: 500, …}5: {isPpf: false, _id: '694e278d116754823b162925', name: 'Garware Premium', category: 'Garware Premium', quantity: 499, …}6: {isPpf: false, _id: '6958e1afce62a6dfeb6a2836', name: 'Helmet', category: 'Headgear', quantity: 1500, …}7: {isPpf: false, _id: '69590ad8896fd2090305ed85', name: 'New Helm', category: 'Headgear', quantity: 1500, …}8: {isPpf: false, _id: '695e829d0b39167bb63a5501', name: 'Test Accessory 1', category: 'Headgear', quantity: 10, …}9: {isPpf: false, _id: '695957b6ce54cf838bf4192c', name: 'bro1', category: 'bro', quantity: 81, …}10: {isPpf: false, _id: '69590b24896fd2090305ee25', name: 'eg', category: 'new', quantity: 1500, …}11: {isPpf: false, _id: '6958e31173cd6d7157c4114d', name: 'test2', category: 'test1', quantity: 1500, …}length: 12[[Prototype]]: Array(0)

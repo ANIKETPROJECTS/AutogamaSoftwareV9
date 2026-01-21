@@ -1,0 +1,258 @@
+react-dom_client.js?v=39f07b8e:20103 Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1229 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1229 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1229 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1229 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1229 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1229 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1229 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1229 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1229 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1229 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1229 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1229 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1229 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+customer-service.tsx:540 [Inventory DEBUG] Form submission started
+customer-service.tsx:555 [Inventory DEBUG] PPF category: Elite Inventory item found: 694e278d116754823b162922
+api.ts:6  PATCH https://c24c9138-9e03-41e2-af3e-dc06e128d18c-00-29uc9x6qzvi2c.riker.replit.dev/api/inventory/694e278d116754823b162922/consume-fifo 400 (Bad Request)
+request @ api.ts:6
+consumeRollsWithFIFO @ api.ts:90
+handleSubmit @ customer-service.tsx:562
+executeDispatch @ react-dom_client.js?v=39f07b8e:13622
+runWithFiberInDEV @ react-dom_client.js?v=39f07b8e:997
+processDispatchQueue @ react-dom_client.js?v=39f07b8e:13658
+(anonymous) @ react-dom_client.js?v=39f07b8e:14071
+batchedUpdates$1 @ react-dom_client.js?v=39f07b8e:2626
+dispatchEventForPluginEventSystem @ react-dom_client.js?v=39f07b8e:13763
+dispatchEvent @ react-dom_client.js?v=39f07b8e:16784
+dispatchDiscreteEvent @ react-dom_client.js?v=39f07b8e:16765
+customer-service.tsx:564 Roll deduction failed: Error: Insufficient stock or item not found
+    at request (api.ts:16:11)
+    at async handleSubmit (customer-service.tsx:562:11)
+handleSubmit @ customer-service.tsx:564
+await in handleSubmit
+executeDispatch @ react-dom_client.js?v=39f07b8e:13622
+runWithFiberInDEV @ react-dom_client.js?v=39f07b8e:997
+processDispatchQueue @ react-dom_client.js?v=39f07b8e:13658
+(anonymous) @ react-dom_client.js?v=39f07b8e:14071
+batchedUpdates$1 @ react-dom_client.js?v=39f07b8e:2626
+dispatchEventForPluginEventSystem @ react-dom_client.js?v=39f07b8e:13763
+dispatchEvent @ react-dom_client.js?v=39f07b8e:16784
+dispatchDiscreteEvent @ react-dom_client.js?v=39f07b8e:16765
+customer-service.tsx:1228 --- Final Accessory Categories from DB --- (3) ['Headgear', 'new', 'test1']
+customer-service.tsx:1229 All raw items found: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+dialog.tsx:36 Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+(anonymous) @ chunk-OEDBKWQG.js?v=39f07b8e:505
+react_stack_bottom_frame @ react-dom_client.js?v=39f07b8e:18567
+runWithFiberInDEV @ react-dom_client.js?v=39f07b8e:997
+commitHookEffectListMount @ react-dom_client.js?v=39f07b8e:9411
+commitHookPassiveMountEffects @ react-dom_client.js?v=39f07b8e:9465
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11040
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11201
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11201
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11201
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11201
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11201
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11201
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11201
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11201
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11201
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11201
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11201
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11201
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11201
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11201
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11033
+recursivelyTraversePassiveMountEffects @ react-dom_client.js?v=39f07b8e:11010
+commitPassiveMountOnFiber @ react-dom_client.js?v=39f07b8e:11066
+flushPassiveEffects @ react-dom_client.js?v=39f07b8e:13150
+flushPendingEffects @ react-dom_client.js?v=39f07b8e:13088
+flushSpawnedWork @ react-dom_client.js?v=39f07b8e:13062
+commitRoot @ react-dom_client.js?v=39f07b8e:12804
+commitRootWhenReady @ react-dom_client.js?v=39f07b8e:12016
+performWorkOnRoot @ react-dom_client.js?v=39f07b8e:11950
+performSyncWorkOnRoot @ react-dom_client.js?v=39f07b8e:13517
+flushSyncWorkAcrossRoots_impl @ react-dom_client.js?v=39f07b8e:13414
+processRootScheduleInMicrotask @ react-dom_client.js?v=39f07b8e:13437
+(anonymous) @ react-dom_client.js?v=39f07b8e:13531
+<DescriptionWarning>
+exports.jsx @ chunk-WXT7FLCE.js?v=39f07b8e:247
+(anonymous) @ chunk-OEDBKWQG.js?v=39f07b8e:433
+react_stack_bottom_frame @ react-dom_client.js?v=39f07b8e:18509
+renderWithHooks @ react-dom_client.js?v=39f07b8e:5654
+updateForwardRef @ react-dom_client.js?v=39f07b8e:7198
+beginWork @ react-dom_client.js?v=39f07b8e:8735
+runWithFiberInDEV @ react-dom_client.js?v=39f07b8e:997
+performUnitOfWork @ react-dom_client.js?v=39f07b8e:12561
+workLoopSync @ react-dom_client.js?v=39f07b8e:12424
+renderRootSync @ react-dom_client.js?v=39f07b8e:12408
+performWorkOnRoot @ react-dom_client.js?v=39f07b8e:11766
+performSyncWorkOnRoot @ react-dom_client.js?v=39f07b8e:13517
+flushSyncWorkAcrossRoots_impl @ react-dom_client.js?v=39f07b8e:13414
+processRootScheduleInMicrotask @ react-dom_client.js?v=39f07b8e:13437
+(anonymous) @ react-dom_client.js?v=39f07b8e:13531
+<ForwardRef>
+exports.jsx @ chunk-WXT7FLCE.js?v=39f07b8e:247
+(anonymous) @ chunk-OEDBKWQG.js?v=39f07b8e:335
+react_stack_bottom_frame @ react-dom_client.js?v=39f07b8e:18509
+renderWithHooks @ react-dom_client.js?v=39f07b8e:5654
+updateForwardRef @ react-dom_client.js?v=39f07b8e:7198
+beginWork @ react-dom_client.js?v=39f07b8e:8735
+runWithFiberInDEV @ react-dom_client.js?v=39f07b8e:997
+performUnitOfWork @ react-dom_client.js?v=39f07b8e:12561
+workLoopSync @ react-dom_client.js?v=39f07b8e:12424
+renderRootSync @ react-dom_client.js?v=39f07b8e:12408
+performWorkOnRoot @ react-dom_client.js?v=39f07b8e:11766
+performSyncWorkOnRoot @ react-dom_client.js?v=39f07b8e:13517
+flushSyncWorkAcrossRoots_impl @ react-dom_client.js?v=39f07b8e:13414
+processRootScheduleInMicrotask @ react-dom_client.js?v=39f07b8e:13437
+(anonymous) @ react-dom_client.js?v=39f07b8e:13531
+<ForwardRef>
+exports.jsx @ chunk-WXT7FLCE.js?v=39f07b8e:247
+DialogContent @ chunk-OEDBKWQG.js?v=39f07b8e:322
+react_stack_bottom_frame @ react-dom_client.js?v=39f07b8e:18509
+renderWithHooks @ react-dom_client.js?v=39f07b8e:5654
+updateForwardRef @ react-dom_client.js?v=39f07b8e:7198
+beginWork @ react-dom_client.js?v=39f07b8e:8735
+runWithFiberInDEV @ react-dom_client.js?v=39f07b8e:997
+performUnitOfWork @ react-dom_client.js?v=39f07b8e:12561
+workLoopSync @ react-dom_client.js?v=39f07b8e:12424
+renderRootSync @ react-dom_client.js?v=39f07b8e:12408
+performWorkOnRoot @ react-dom_client.js?v=39f07b8e:11766
+performSyncWorkOnRoot @ react-dom_client.js?v=39f07b8e:13517
+flushSyncWorkAcrossRoots_impl @ react-dom_client.js?v=39f07b8e:13414
+processRootScheduleInMicrotask @ react-dom_client.js?v=39f07b8e:13437
+(anonymous) @ react-dom_client.js?v=39f07b8e:13531
+<DialogContent>
+exports.jsxDEV @ react_jsx-dev-runtime.js?v=39f07b8e:247
+_c3 @ dialog.tsx:36
+react_stack_bottom_frame @ react-dom_client.js?v=39f07b8e:18509
+renderWithHooks @ react-dom_client.js?v=39f07b8e:5654
+updateForwardRef @ react-dom_client.js?v=39f07b8e:7198
+beginWork @ react-dom_client.js?v=39f07b8e:8735
+runWithFiberInDEV @ react-dom_client.js?v=39f07b8e:997
+performUnitOfWork @ react-dom_client.js?v=39f07b8e:12561
+workLoopSync @ react-dom_client.js?v=39f07b8e:12424
+renderRootSync @ react-dom_client.js?v=39f07b8e:12408
+performWorkOnRoot @ react-dom_client.js?v=39f07b8e:11766
+performSyncWorkOnRoot @ react-dom_client.js?v=39f07b8e:13517
+flushSyncWorkAcrossRoots_impl @ react-dom_client.js?v=39f07b8e:13414
+processRootScheduleInMicrotask @ react-dom_client.js?v=39f07b8e:13437
+(anonymous) @ react-dom_client.js?v=39f07b8e:13531
+<DialogContent>
+exports.jsxDEV @ react_jsx-dev-runtime.js?v=39f07b8e:247
+Inventory @ inventory.tsx:851
+react_stack_bottom_frame @ react-dom_client.js?v=39f07b8e:18509
+renderWithHooks @ react-dom_client.js?v=39f07b8e:5654
+updateFunctionComponent @ react-dom_client.js?v=39f07b8e:7475
+beginWork @ react-dom_client.js?v=39f07b8e:8525
+runWithFiberInDEV @ react-dom_client.js?v=39f07b8e:997
+performUnitOfWork @ react-dom_client.js?v=39f07b8e:12561
+workLoopSync @ react-dom_client.js?v=39f07b8e:12424
+renderRootSync @ react-dom_client.js?v=39f07b8e:12408
+performWorkOnRoot @ react-dom_client.js?v=39f07b8e:11766
+performSyncWorkOnRoot @ react-dom_client.js?v=39f07b8e:13517
+flushSyncWorkAcrossRoots_impl @ react-dom_client.js?v=39f07b8e:13414
+processRootScheduleInMicrotask @ react-dom_client.js?v=39f07b8e:13437
+(anonymous) @ react-dom_client.js?v=39f07b8e:13531
+<Inventory>
+exports.createElement @ chunk-FTFSCOIU.js?v=39f07b8e:793
+h_route @ wouter.js?v=39f07b8e:255
+Route @ wouter.js?v=39f07b8e:274
+react_stack_bottom_frame @ react-dom_client.js?v=39f07b8e:18509
+renderWithHooks @ react-dom_client.js?v=39f07b8e:5654
+updateFunctionComponent @ react-dom_client.js?v=39f07b8e:7475
+beginWork @ react-dom_client.js?v=39f07b8e:8525
+runWithFiberInDEV @ react-dom_client.js?v=39f07b8e:997
+performUnitOfWork @ react-dom_client.js?v=39f07b8e:12561
+workLoopSync @ react-dom_client.js?v=39f07b8e:12424
+renderRootSync @ react-dom_client.js?v=39f07b8e:12408
+performWorkOnRoot @ react-dom_client.js?v=39f07b8e:11766
+performSyncWorkOnRoot @ react-dom_client.js?v=39f07b8e:13517
+flushSyncWorkAcrossRoots_impl @ react-dom_client.js?v=39f07b8e:13414
+processRootScheduleInMicrotask @ react-dom_client.js?v=39f07b8e:13437
+(anonymous) @ react-dom_client.js?v=39f07b8e:13531
