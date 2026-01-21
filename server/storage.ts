@@ -600,8 +600,16 @@ export class MongoStorage implements IStorage {
     const subtotal = businessItems.reduce((sum: number, item: any) => sum + (item.price || 0), 0);
     const itemDiscounts = businessItems.reduce((sum: number, item: any) => sum + (item.discount || item.discountAmount || 0), 0);
     const taxableAmount = Math.max(0, subtotal - itemDiscounts - discount);
-    const taxAmount = job.requiresGST ? (taxableAmount * taxRate) / 100 : 0;
-    const totalAmount = taxableAmount + taxAmount;
+    
+    // Add labor cost to subtotal for invoice calculation if it belongs to this business
+    const laborChargeItem = job.serviceItems.find((item: any) => 
+      item.name === 'Labor Charge' && (item.assignedBusiness || 'Auto Gamma') === business
+    );
+    const laborCostAmount = laborChargeItem ? (laborChargeItem.price || 0) : 0;
+    const finalSubtotal = subtotal + laborCostAmount;
+    const finalTaxableAmount = Math.max(0, finalSubtotal - itemDiscounts - discount);
+    const taxAmount = job.requiresGST ? (finalTaxableAmount * taxRate) / 100 : 0;
+    const totalAmount = finalTaxableAmount + taxAmount;
     const lastInvoice = await Invoice.findOne({ business }).sort({ createdAt: -1 });
     let nextNum = 1;
     if (lastInvoice && lastInvoice.invoiceNumber) {
@@ -640,7 +648,7 @@ export class MongoStorage implements IStorage {
       business, 
       invoiceNumber, 
       items: invoiceItems, 
-      subtotal, 
+      subtotal: finalSubtotal, 
       discount, 
       taxRate, 
       taxAmount, 

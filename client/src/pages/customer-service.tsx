@@ -798,10 +798,10 @@ export default function CustomerService() {
 
     const serviceItemsList: any[] = [];
     // Add PPF if selected
-    if (ppfPrice > 0) {
+    if (ppfCategory && ppfPrice > 0) {
       const ppfDiscountValue = parseFloat(ppfDiscount) || 0;
       serviceItemsList.push({
-        name: `PPF ${ppfCategory} - ${ppfWarranty}`,
+        name: `${ppfCategory} PPF`,
         price: ppfPrice,
         discount: ppfDiscountValue,
         type: 'part',
