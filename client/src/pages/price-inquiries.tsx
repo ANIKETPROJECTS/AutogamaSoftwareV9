@@ -653,7 +653,8 @@ Auto Gamma Car Care Studio`;
       serviceDetailsJson,
       priceOffered: selectedServiceItems.reduce((sum, item) => sum + item.price, 0),
       priceStated: selectedServiceItems.reduce((sum, item) => sum + (item.customerPrice || 0), 0),
-      notes: formData.get('notes') as string || ''
+      notes: formData.get('notes') as string || '',
+      status: 'Inquiry'
     });
   };
 
@@ -1169,7 +1170,17 @@ Auto Gamma Car Care Studio`;
 
                       <div className="flex flex-col gap-4">
                         <div className="flex items-center justify-between text-xs text-muted-foreground border-b pb-2">
-                          <span className="font-medium">Inquiry ID: <span className="text-slate-900">{inquiry.inquiryId || `INQ${inquiry._id.slice(-3).toUpperCase().padStart(3, '0')}`}</span></span>
+                          <div className="flex items-center gap-2">
+                            <span className="font-medium">Inquiry ID: <span className="text-slate-900">{inquiry.inquiryId || `INQ${inquiry._id.slice(-3).toUpperCase().padStart(3, '0')}`}</span></span>
+                            <span className={cn(
+                              "px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider border",
+                              inquiry.status === 'Converted' 
+                                ? "bg-purple-50 text-purple-700 border-purple-200" 
+                                : "bg-slate-50 text-slate-700 border-slate-200"
+                            )}>
+                              {inquiry.status === 'Converted' ? 'Converted' : 'Inquiry'}
+                            </span>
+                          </div>
                           <span className="font-medium">Date: <span className="text-slate-900">{inquiry.createdAt ? format(new Date(inquiry.createdAt), 'MMMM d, yyyy') : 'N/A'}</span></span>
                         </div>
 

@@ -1731,7 +1731,13 @@ export async function registerRoutes(
         ];
       }
       
-      if (status && status !== 'all') {
+      if (status === 'Inquiry') {
+        query.$or = [
+          { status: 'Inquiry' },
+          { status: { $exists: false } },
+          { status: null }
+        ];
+      } else if (status && status !== 'all') {
         query.status = status;
       }
 
