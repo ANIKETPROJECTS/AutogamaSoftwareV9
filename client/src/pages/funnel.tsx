@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
-import { Eye, Wrench, Phone, MapPin, Search, History, Car, Clock, Mail, Briefcase, DollarSign, Calendar } from "lucide-react";
+import { Eye, Wrench, Phone, MapPin, Search, History, Car, Clock, Mail, Briefcase, DollarSign, Calendar, Pencil, Trash2, ReceiptText } from "lucide-react";
 import { Link } from "wouter";
 import {
   Dialog,
@@ -20,8 +20,19 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { Label } from "@/components/ui/label";
 
 const FUNNEL_STAGES = [
   { key: "New Lead", label: "New Lead", color: "blue" },
@@ -91,6 +102,11 @@ export default function CustomerFunnel() {
   const [cancelDialogOpen, setCancelDialogOpen] = useState(false);
   const [cancellationReason, setCancellationReason] = useState("");
   const [pendingJob, setPendingJob] = useState<any>(null);
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [jobToDelete, setJobToDelete] = useState<any>(null);
+  const [editDialogOpen, setEditDialogOpen] = useState(false);
+  const [jobToEdit, setJobToEdit] = useState<any>(null);
+  const [editForm, setEditForm] = useState({ vehicleName: "", plateNumber: "", totalAmount: 0 });
 
   const updateStatusMutation = useMutation({
     mutationFn: ({ id, status, serviceItems, cancellationReason, requiresGST, discount }: { 
@@ -119,6 +135,30 @@ export default function CustomerFunnel() {
       const errorMsg = error?.message || "Failed to update status";
       toast({ title: errorMsg, variant: "destructive" });
     },
+  });
+
+  const deleteJobMutation = useMutation({
+    mutationFn: (id: string) => api.jobs.delete(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["jobs"] });
+      toast({ title: "Job deleted successfully" });
+      setDeleteDialogOpen(false);
+    },
+    onError: (error: any) => {
+      toast({ title: error.message || "Failed to delete job", variant: "destructive" });
+    }
+  });
+
+  const updateJobMutation = useMutation({
+    mutationFn: ({ id, data }: { id: string; data: any }) => api.jobs.update(id, data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["jobs"] });
+      toast({ title: "Job updated successfully" });
+      setEditDialogOpen(false);
+    },
+    onError: (error: any) => {
+      toast({ title: error.message || "Failed to update job", variant: "destructive" });
+    }
   });
 
   const handleStageChange = (job: any, newStage: string) => {
@@ -255,6 +295,11 @@ export default function CustomerFunnel() {
                   <div className="flex flex-nowrap gap-4 min-w-full">
                     {getJobsByStage(stage.key).map((job: any) => {
                       const customer = customers.find((c: any) => c._id === job.customerId);
+                      const hasInvoice = invoices.some((inv: any) => {
+                        const invJobId = (inv.jobId?._id || inv.jobId || "").toString();
+                        const currentJobId = (job._id?._id || job._id || "").toString();
+                        return invJobId === currentJobId;
+                      });
                       return (
                       <Card
                         key={job._id}
@@ -271,7 +316,44 @@ export default function CustomerFunnel() {
                               <span className="truncate">{customer?.phone || 'N/A'}</span>
                             </p>
                           </div>
+                          <div className="flex gap-1">
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              className="h-8 w-8 text-blue-600 hover:text-blue-700 hover:bg-blue-50"
+                              onClick={() => {
+                                setJobToEdit(job);
+                                setEditForm({
+                                  vehicleName: job.vehicleName || "",
+                                  plateNumber: job.plateNumber || "",
+                                  totalAmount: job.totalAmount || 0
+                                });
+                                setEditDialogOpen(true);
+                              }}
+                            >
+                              <Pencil className="w-4 h-4" />
+                            </Button>
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              className="h-8 w-8 text-red-600 hover:text-red-700 hover:bg-red-50"
+                              onClick={() => {
+                                setJobToDelete(job);
+                                setDeleteDialogOpen(true);
+                              }}
+                            >
+                              <Trash2 className="w-4 h-4" />
+                            </Button>
+                          </div>
                         </div>
+
+                        {/* Invoice Status */}
+                        {hasInvoice && (
+                          <div className="flex items-center gap-2 text-green-600 bg-green-50 px-2 py-1.5 rounded border border-green-100">
+                            <ReceiptText className="w-3.5 h-3.5" />
+                            <span className="text-[10px] font-bold uppercase tracking-wider">Invoice Generated</span>
+                          </div>
+                        )}
 
                         {/* Vehicle Info */}
                         {job.vehicleName && (
@@ -571,6 +653,66 @@ export default function CustomerFunnel() {
           </div>
         </DialogContent>
       </Dialog>
+
+      {/* Edit Job Dialog */}
+      <Dialog open={editDialogOpen} onOpenChange={setEditDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Edit Job Details</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4 py-4">
+            <div className="space-y-2">
+              <Label>Vehicle Name</Label>
+              <Input 
+                value={editForm.vehicleName} 
+                onChange={(e) => setEditForm({...editForm, vehicleName: e.target.value})}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label>Plate Number</Label>
+              <Input 
+                value={editForm.plateNumber} 
+                onChange={(e) => setEditForm({...editForm, plateNumber: e.target.value})}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label>Total Amount</Label>
+              <Input 
+                type="number"
+                value={editForm.totalAmount} 
+                onChange={(e) => setEditForm({...editForm, totalAmount: parseInt(e.target.value) || 0})}
+              />
+            </div>
+            <div className="flex justify-end gap-2 pt-4">
+              <Button variant="outline" onClick={() => setEditDialogOpen(false)}>Cancel</Button>
+              <Button onClick={() => updateJobMutation.mutate({ id: jobToEdit._id, data: editForm })} disabled={updateJobMutation.isPending}>
+                {updateJobMutation.isPending ? "Saving..." : "Save Changes"}
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Delete Confirmation */}
+      <AlertDialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This action cannot be undone. This will permanently delete the service job.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction 
+              onClick={() => deleteJobMutation.mutate(jobToDelete._id)}
+              className="bg-red-600 hover:bg-red-700"
+            >
+              {deleteJobMutation.isPending ? "Deleting..." : "Delete"}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
 
       {/* History Dialog */}
       <Dialog open={historyOpen} onOpenChange={setHistoryOpen}>

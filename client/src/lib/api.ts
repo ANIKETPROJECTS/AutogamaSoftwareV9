@@ -49,6 +49,7 @@ export const api = {
     get: (id: string) => request<any>(`/jobs/${id}`),
     create: (data: any) => request<any>('/jobs', { method: 'POST', body: JSON.stringify(data) }),
     update: (id: string, data: any) => request<any>(`/jobs/${id}`, { method: 'PATCH', body: JSON.stringify(data) }),
+    delete: (id: string) => request<any>(`/jobs/${id}`, { method: 'DELETE' }),
     updateStage: (id: string, stage: string, serviceItems?: any[], cancellationReason?: string, requiresGST?: boolean, discount?: number) => 
       request<any>(`/jobs/${id}/stage`, { 
         method: 'PATCH', 

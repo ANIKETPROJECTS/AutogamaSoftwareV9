@@ -1035,6 +1035,27 @@ export async function registerRoutes(
     }
   });
 
+  app.patch("/api/jobs/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      const job = await storage.updateJob(id, req.body);
+      if (!job) return res.status(404).json({ message: "Job not found" });
+      res.json(job);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to update job" });
+    }
+  });
+
+  app.delete("/api/jobs/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      await storage.deleteJob(id);
+      res.json({ message: "Job deleted successfully" });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to delete job" });
+    }
+  });
+
   app.get("/api/jobs", async (req, res) => {
     try {
       const { stage, page = '1', limit = '10' } = req.query;
