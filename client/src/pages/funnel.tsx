@@ -317,22 +317,24 @@ export default function CustomerFunnel() {
                             </p>
                           </div>
                           <div className="flex gap-1">
-                            <Button
-                              variant="ghost"
-                              size="icon"
-                              className="h-8 w-8 text-blue-600 hover:text-blue-700 hover:bg-blue-50"
-                              onClick={() => {
-                                setJobToEdit(job);
-                                setEditForm({
-                                  vehicleName: job.vehicleName || "",
-                                  plateNumber: job.plateNumber || "",
-                                  totalAmount: job.totalAmount || 0
-                                });
-                                setEditDialogOpen(true);
-                              }}
-                            >
-                              <Pencil className="w-4 h-4" />
-                            </Button>
+                            {["New Lead", "Inspection Done", "Work In Progress"].includes(job.stage) && (
+                              <Button
+                                variant="ghost"
+                                size="icon"
+                                className="h-8 w-8 text-blue-600 hover:text-blue-700 hover:bg-blue-50"
+                                onClick={() => {
+                                  setJobToEdit(job);
+                                  setEditForm({
+                                    vehicleName: job.vehicleName || "",
+                                    plateNumber: job.plateNumber || "",
+                                    totalAmount: job.totalAmount || 0
+                                  });
+                                  setEditDialogOpen(true);
+                                }}
+                              >
+                                <Pencil className="w-4 h-4" />
+                              </Button>
+                            )}
                             <Button
                               variant="ghost"
                               size="icon"
