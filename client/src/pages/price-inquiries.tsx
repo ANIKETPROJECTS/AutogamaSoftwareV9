@@ -454,9 +454,29 @@ Auto Gamma Car Care Studio`;
     }
   };
 
+  const [statusFilter, setStatusFilter] = useState<string>('all');
+  const [sortBy, setSortBy] = useState<string>('createdAt');
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
+
   const { data: inquiriesData, isLoading } = useQuery({
-    queryKey: ['/api/price-inquiries', searchQuery, filterService],
-    queryFn: () => api.priceInquiries.list(),
+    queryKey: ['/api/price-inquiries', searchQuery, statusFilter, sortBy, sortOrder],
+    queryFn: () => {
+      const params = new URLSearchParams();
+      if (searchQuery) params.append('search', searchQuery);
+      if (statusFilter !== 'all') params.append('status', statusFilter);
+      params.append('sortBy', sortBy);
+      params.append('sortOrder', sortOrder);
+      return fetch(`/api/price-inquiries?${params.toString()}`).then(res => res.json());
+    },
+  });
+
+  const updateStatusMutation = useMutation({
+    mutationFn: ({ id, status }: { id: string; status: string }) =>
+      api.priceInquiries.updateStatus(id, status),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['/api/price-inquiries'] });
+      toast({ title: 'Status updated successfully' });
+    },
   });
   const inquiries = inquiriesData?.inquiries || [];
 
@@ -1134,6 +1154,23 @@ Auto Gamma Car Care Studio`;
                         </div>
 
                         <div className="flex flex-wrap items-center justify-end gap-2">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className={cn(
+                              "hover-elevate text-white",
+                              inquiry.status === 'Converted' 
+                                ? "bg-purple-600 border-purple-600 hover:bg-purple-700" 
+                                : "bg-slate-600 border-slate-600 hover:bg-slate-700"
+                            )}
+                            onClick={() => updateStatusMutation.mutate({ 
+                              id: inquiry._id, 
+                              status: inquiry.status === 'Converted' ? 'Inquiry' : 'Converted' 
+                            })}
+                            disabled={updateStatusMutation.isPending}
+                          >
+                            {inquiry.status === 'Converted' ? 'Converted' : 'Mark Converted'}
+                          </Button>
                           <Button 
                             variant="outline" 
                             size="sm" 

@@ -176,6 +176,7 @@ export interface IPriceInquiry extends Document {
   priceOffered: number;
   priceStated: number;
   notes?: string;
+  status: 'Inquiry' | 'Converted';
   createdAt: Date;
 }
 
@@ -418,6 +419,7 @@ const PriceInquirySchema = new Schema<IPriceInquiry>({
   priceOffered: { type: Number, required: true },
   priceStated: { type: Number, required: true },
   notes: { type: String },
+  status: { type: String, enum: ['Inquiry', 'Converted'], default: 'Inquiry' },
   createdAt: { type: Date, default: Date.now }
 });
 

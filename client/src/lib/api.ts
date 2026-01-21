@@ -118,6 +118,7 @@ export const api = {
       })}`),
     create: (data: any) => request<any>('/price-inquiries', { method: 'POST', body: JSON.stringify(data) }),
     delete: (id: string) => request<any>(`/price-inquiries/${id}`, { method: 'DELETE' }),
+    updateStatus: (id: string, status: string) => request<any>(`/price-inquiries/${id}/status`, { method: 'PATCH', body: JSON.stringify({ status }) }),
   },
   
   whatsapp: {

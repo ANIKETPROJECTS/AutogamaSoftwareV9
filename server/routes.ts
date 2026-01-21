@@ -1719,14 +1719,43 @@ export async function registerRoutes(
   // Price Inquiries
   app.get("/api/price-inquiries", async (req, res) => {
     try {
-      const { page = '1', limit = '10' } = req.query;
-      const result = await storage.getPriceInquiries({
-        page: parseInt(page as string, 10),
-        limit: parseInt(limit as string, 10)
-      });
-      res.json(result);
+      const { search, status, sortBy, sortOrder } = req.query;
+      let query: any = {};
+      
+      if (search) {
+        const regex = new RegExp(search as string, 'i');
+        query.$or = [
+          { name: regex },
+          { phone: regex },
+          { inquiryId: regex }
+        ];
+      }
+      
+      if (status && status !== 'all') {
+        query.status = status;
+      }
+
+      let sort: any = { createdAt: -1 };
+      if (sortBy) {
+        sort = { [sortBy as string]: sortOrder === 'asc' ? 1 : -1 };
+      }
+
+      const inquiries = await PriceInquiry.find(query).sort(sort);
+      res.json({ inquiries });
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch price inquiries" });
+    }
+  });
+
+  app.patch("/api/price-inquiries/:id/status", async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { status } = req.body;
+      const inquiry = await PriceInquiry.findByIdAndUpdate(id, { status }, { new: true });
+      if (!inquiry) return res.status(404).json({ message: "Inquiry not found" });
+      res.json(inquiry);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to update status" });
     }
   });
 
