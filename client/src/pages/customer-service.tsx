@@ -144,7 +144,7 @@ export default function CustomerService() {
               }
 
               const otherServices = job.serviceItems
-                .filter((item: any) => !item.isPpf && item.category !== 'Accessories')
+                .filter((item: any) => !item.isPpf && item.category !== 'Accessories' && item.name !== 'Labor Charge' && item.sizeUsed === undefined)
                 .map((item: any) => ({
                   name: item.name,
                   vehicleType: item.vehicleType || '',
@@ -152,6 +152,11 @@ export default function CustomerService() {
                   discount: item.discount || 0
                 }));
               setSelectedOtherServices(otherServices);
+
+              // Map PPF discount from job-level discount if not on item
+              if (job.discountAmount && ppfItem && !ppfItem.discount) {
+                setPpfDiscount(job.discountAmount.toString());
+              }
 
               const accessories = job.serviceItems
                 .filter((item: any) => item.category === 'Accessories')
