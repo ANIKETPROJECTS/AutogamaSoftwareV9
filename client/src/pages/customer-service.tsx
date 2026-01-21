@@ -100,23 +100,31 @@ export default function CustomerService() {
             setSelectedCustomerId(job.customerId);
             setServiceNotes(job.notes || '');
             // First find the explicit labor cost field from the job
-            let finalLaborCost = job.laborCost?.toString() || '';
+            let finalLaborCost = (job.laborCost ?? job.totalLaborCost)?.toString() || '';
             
             // If not found in dedicated field, search in service items
-            if (!finalLaborCost && Array.isArray(job.serviceItems)) {
+            if ((!finalLaborCost || finalLaborCost === '0') && Array.isArray(job.serviceItems)) {
+              console.log('[Edit DEBUG] Searching service items for labor:', job.serviceItems);
               const laborChargeItem = job.serviceItems.find((i: any) => 
                 i.name === 'Labor Charge' || 
                 i.type === 'labor' || 
-                (typeof i.name === 'string' && i.name.toLowerCase().includes('labor'))
+                (typeof i.name === 'string' && (
+                  i.name.toLowerCase().includes('labor') || 
+                  i.name.toLowerCase().includes('labour')
+                ))
               );
               if (laborChargeItem) {
-                finalLaborCost = laborChargeItem.price?.toString() || '';
+                console.log('[Edit DEBUG] Found labor item:', laborChargeItem);
+                finalLaborCost = (laborChargeItem.price ?? laborChargeItem.amount)?.toString() || '';
               }
             }
             
-            console.log('[Edit DEBUG] Setting labor cost to state:', finalLaborCost);
-            // Ensure we set a string and handle the case where it might be undefined
-            setLaborCost(finalLaborCost || '0');
+            console.log('[Edit DEBUG] Final labor cost value determined:', finalLaborCost);
+            // Force state update and ensure it's a string
+            const laborToSet = finalLaborCost ? String(finalLaborCost) : '0';
+            setLaborCost(laborToSet);
+            // Extra safety: log the state value after setting (note: state updates are async, this is for code intent)
+            console.log('[Edit DEBUG] setLaborCost called with:', laborToSet);
             setIncludeGst(job.requiresGST ?? true);
             setSelectedTechnicianId(job.technicianId || '');
             
